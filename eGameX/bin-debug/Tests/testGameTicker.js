@@ -26,10 +26,8 @@ var testGameTicker = (function (_super) {
         //res
         //   var test =  RES.getRes("config/buffdesc.json");
         RES.getRes("config/buffdesc.json").then(function (rs) {
-            var p = rs;
-            egret.log("hello");
-            var b = StringWithFormat(p[7].desc, 20, 3, 5);
-            var test = p[7].desc;
+            var b = StringWithFormat(rs[7].desc, 20);
+            egret.log(b);
         });
         //  egret.log("test<<<<<< "+test[1].desc);
         egret.setTimeout(function () {

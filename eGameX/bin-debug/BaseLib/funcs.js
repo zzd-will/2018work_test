@@ -1,3 +1,7 @@
+/**
+ *
+ * 根据规则依次匹配参数e中符合的所有出现的字符串。{1}{2}{3} => 20 30 40
+*/
 function StringWithFormat(e) {
     var args = [];
     for (var _i = 1; _i < arguments.length; _i++) {
