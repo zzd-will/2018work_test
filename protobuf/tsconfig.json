@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		 "allowJs": true,
+		"outFile": "bin/protobuf.js"
+	},
+  
+	 "files": [
+        "src/bytebuffer.js",
+		"src/long.js",
+		"src/protobuf.js"
+    ]
+}

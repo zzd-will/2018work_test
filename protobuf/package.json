@@ -1,0 +1,6 @@
+{
+	"name": "protobuf",
+	"compilerVersion": "5.2.3",
+	"typings": "src/protobuf.d.ts"
+
+}
