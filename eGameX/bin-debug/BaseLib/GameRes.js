@@ -64,27 +64,22 @@ var GameRes;
                 return Promise.resolve();
             },
             getData: function (host, resource, key, subkey) {
-                return __awaiter(this, void 0, void 0, function () {
-                    var a, result;
-                    return __generator(this, function (_a) {
-                        switch (_a.label) {
-                            case 0:
-                                a = host.get(resource);
-                                return [4 /*yield*/, a.file(subkey).async("string").then(function (data) {
-                                        if (subkey.indexOf(".json") >= 0) {
-                                            result = JSON.parse(data);
-                                            // egret.log("result", result);
-                                        }
-                                        else if (subkey.indexOf(".tmx") >= 0) {
-                                            result = egret.XML.parse(data);
-                                        }
-                                        else {
-                                            result = "parse data failed!";
-                                        }
-                                    })];
-                            case 1:
-                                _a.sent();
-                                return [2 /*return*/, result];
+                var a = host.get(resource);
+                var result;
+                return new Promise(function (resole, rejcet) {
+                    a.file(subkey).async("string").then(function (data) {
+                        if (subkey.indexOf(".json") >= 0) {
+                            result = JSON.parse(data);
+                            resole(result);
+                        }
+                        else if (subkey.indexOf(".tmx") >= 0) {
+                            result = egret.XML.parse(data);
+                            resole(result);
+                            resole(result);
+                        }
+                        else {
+                            result = "parse data failed!";
+                            rejcet(result);
                         }
                     });
                 });
@@ -93,13 +88,16 @@ var GameRes;
     }
     GameRes.preInit = preInit;
     function getRes(key) {
-        if (RES.hasRes(key)) {
-            return RES.getRes(key);
-        }
-        else {
-            egret.log("getRes not have this key: ", key);
-            return false;
-        }
+        return new Promise(function (resole, rejcet) {
+            if (RES.hasRes(key)) {
+                RES.getRes(key).then(function (rs, rej) {
+                    resole(rs);
+                });
+            }
+            else {
+                rejcet("getRes not have this key: " + key);
+            }
+        });
     }
     GameRes.getRes = getRes;
     function getResAsync(key) {

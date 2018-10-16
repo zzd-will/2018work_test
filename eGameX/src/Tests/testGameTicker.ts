@@ -1,6 +1,6 @@
-class testGameTicker extends egret.DisplayObjectContainer{
+class testGameTicker extends egret.DisplayObjectContainer {
 
-    constructor(){
+    constructor() {
         super();
         //GameTicker test
         // GameTicker.init();
@@ -10,30 +10,38 @@ class testGameTicker extends egret.DisplayObjectContainer{
         // egret.log("test");
 
         // },this);
-        
-        
-    //GameEvent test
-    //   GameEvent.add(GameEvent.EVENT.Login,function(){
-    //        egret.log("<<<< addEventListener");
-    //   },this);
-    //   GameEvent.dispatch(GameEvent.EVENT.Login);
 
 
-      //res
-     
-    //   var test =  RES.getRes("config/buffdesc.json");
-  
-         RES.getRes("config/buffdesc.json").then(function(rs){
-             var b = StringWithFormat(rs[7].desc, 20)       
-             egret.log(b);
-         });
+        //GameEvent test
+        //   GameEvent.add(GameEvent.EVENT.Login,function(){
+        //        egret.log("<<<< addEventListener");
+        //   },this);
+        //   GameEvent.dispatch(GameEvent.EVENT.Login);
 
-        //  egret.log("test<<<<<< "+test[1].desc);
-         egret.setTimeout(function(){
+        //zip资源获取
+        // GameRes.getRes("config/buffdesc.json").then(function (rs) {
+        //     var b = StringWithFormat(rs[7].desc, 20)
+        //     egret.log(b);
+        // });
 
-            //  var b = test;
-         },this,2000)   
-      
+
+        //promise使用
+        // this.get("");
+
+        //tables json 加载
+        tables.load();
     }
+    //promise 使用
+    public get(key: string) {
+
+        GameRes.getRes("config/buffdesc.json").then(function(rs) {
+            var b = StringWithFormat(rs[7].desc, 20)
+            egret.log(b);
+        }).catch(function (rej) {
+            egret.log(rej)
+        });
+
+    }
+
 
 }

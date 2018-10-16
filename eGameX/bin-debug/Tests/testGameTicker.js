@@ -23,18 +23,28 @@ var testGameTicker = (function (_super) {
         //        egret.log("<<<< addEventListener");
         //   },this);
         //   GameEvent.dispatch(GameEvent.EVENT.Login);
-        //res
-        //   var test =  RES.getRes("config/buffdesc.json");
-        RES.getRes("config/buffdesc.json").then(function (rs) {
-            var b = StringWithFormat(rs[7].desc, 20);
-            egret.log(b);
-        });
-        //  egret.log("test<<<<<< "+test[1].desc);
-        egret.setTimeout(function () {
-            //  var b = test;
-        }, _this, 2000);
+        //zip资源获取
+        // GameRes.getRes("config/buffdesc.json").then(function (rs) {
+        //     var b = StringWithFormat(rs[7].desc, 20)
+        //     egret.log(b);
+        // });
+        //测试一下非阻塞里面的return
+        _this.get("");
+        //tables json 加载
+        tables.load();
         return _this;
     }
+    //测试一下非阻塞里面的return
+    testGameTicker.prototype.get = function (key) {
+        GameRes.getRes("config/buffdes.json").then(function (rs) {
+            var b = StringWithFormat(rs[7].desc, 20);
+            egret.log(b);
+            return;
+        }).catch(function (rej) {
+            egret.log(rej);
+        });
+        // egret.log("return");
+    };
     return testGameTicker;
 }(egret.DisplayObjectContainer));
 __reflect(testGameTicker.prototype, "testGameTicker");

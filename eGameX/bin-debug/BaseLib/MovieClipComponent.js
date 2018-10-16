@@ -8,6 +8,8 @@
 //       public auto;
 //       public removeWhenComplete;
 //       public loader;
+//       public playTimes;
+//       public frame;
 //         constructor(){
 //             super();
 //             this.source = "",
@@ -77,7 +79,7 @@
 //             function(i) {
 //                 var a = i.generateMovieClipData(t);
 //                 null == n.mc ? (n.mc = new egret.MovieClip(a), n.mc.addEventListener(egret.MovieClipEvent.COMPLETE, n.onMovieClipComplete, n), n.addChild(n.mc)) : (n.mc.movieClipData = a, n.mc.visible = !0, n.invalidateSize(), null == n.mc.parent && n.addChild(n.mc)),
-//                 n.mc.blendMode = table.blendMode[e],
+//                 n.mc.blendMode = tables.blendMode[e],
 //                 n.contentJustify ? (n.width = n.mc.width, n.height = n.mc.height, eui.PropertyEvent.dispatchPropertyEvent(n, eui.PropertyEvent.PROPERTY_CHANGE, "contentWidth"), eui.PropertyEvent.dispatchPropertyEvent(n, eui.PropertyEvent.PROPERTY_CHANGE, "contentHeight")) : n.justify && (n.mc.scaleX = n.width / n.mc.width, n.mc.scaleY = n.height / n.mc.height),
 //                 n.updatePosition(),
 //                 null != n.playTimes || null != n.frame ? null != n.frame ? n.mc.gotoAndPlay(n.frame, n.playTimes) : n.mc.play(n.playTimes) : n.auto && n.mc.play( - 1)
@@ -104,7 +106,7 @@
 //             null != this.mc && this.mc.stop()
 //         }
 //         public measure() {
-//             null != this.mc ? this.setMeasuredSize(this.mc.width, this.mc.height) : e.prototype.measure.call(this)
+//             null != this.mc ? this.setMeasuredSize(this.mc.width, this.mc.height) : super.measure.call(this)
 //         }
 //     }
 // } 

@@ -14,7 +14,7 @@
 		"libs/modules/protobuf/protobuf.js"
 	],
 	"game": [
-		"bin-debug/BaseLib/GameRes.js",
+		"bin-debug/BaseLib/GameTicker.js",
 		"bin-debug/AssetAdapter.js",
 		"bin-debug/Main.js",
 		"bin-debug/Platform.js",
@@ -22,11 +22,12 @@
 		"bin-debug/BaseLib/funcs.js",
 		"bin-debug/BaseLib/Game.js",
 		"bin-debug/BaseLib/GameEvent.js",
+		"bin-debug/BaseLib/GameRes.js",
 		"bin-debug/LoadingUI.js",
-		"bin-debug/BaseLib/GameTicker.js",
 		"bin-debug/BaseLib/MovieClipComponent.js",
 		"bin-debug/BaseLib/MovieClipDataLoader.js",
 		"bin-debug/BaseLib/Singleton.js",
+		"bin-debug/BaseLib/Tables.js",
 		"bin-debug/Tests/testGameTicker.js",
 		"bin-debug/Tests/testMap.js",
 		"bin-debug/Tests/testTimer.js",

@@ -16,9 +16,9 @@ namespace GameRes {
                         var files = e.files;
 
                         for (var key in files) {
-                        // RES.config.addSubkey(key, resource.name);
-                        host.resourceConfig.addSubkey(key, resource.name);
-                        // egret.log(key);
+                            // RES.config.addSubkey(key, resource.name);
+                            host.resourceConfig.addSubkey(key, resource.name);
+                            // egret.log(key);
                         }
 
                     }, function (e) {
@@ -34,38 +34,51 @@ namespace GameRes {
             onRemoveStart: function (host: RES.ProcessHost, resource: RES.ResourceInfo) {
                 return Promise.resolve()
             },
-            getData: async function (host: RES.ProcessHost, resource: RES.ResourceInfo, key: string, subkey: string) {
+            getData: function (host: RES.ProcessHost, resource: RES.ResourceInfo, key: string, subkey: string) {
                 var a = host.get(resource);
                 var result;
-                await a.file(subkey).async("string").then(function (data) {
-                    if (subkey.indexOf(".json") >= 0) {
-                        result = JSON.parse(data)
-                        // egret.log("result", result);
 
-                    } else if (subkey.indexOf(".tmx") >= 0) {
-                        result = egret.XML.parse(data)
+                return new Promise(function (resole, rejcet) {
 
-                    } else {
-                        result = "parse data failed!";
-                    }
+                    a.file(subkey).async("string").then(function (data) {
+                        if (subkey.indexOf(".json") >= 0) {
+                            result = JSON.parse(data)
+                            resole(result);
+
+                        } else if (subkey.indexOf(".tmx") >= 0) {
+                            result = egret.XML.parse(data)
+                            resole(result); resole(result);
+
+                        } else {
+                            result = "parse data failed!";
+                            rejcet(result);
+                        }
+
+
+                    })
 
 
                 })
-                return result;
-
 
             }
         });
 
     }
     export function getRes(key: string) {
-        if (RES.hasRes(key)) {
-            return RES.getRes(key);
 
-        } else {
-            egret.log("getRes not have this key: ", key);
-            return false;
-        }
+        return new Promise(function (resole, rejcet) {
+
+            if (RES.hasRes(key)) {
+                RES.getRes(key).then(function (rs, rej) {
+                    resole(rs)
+                })
+
+            } else {
+                rejcet("getRes not have this key: " + key)
+            }
+
+        })
+
 
     }
     export function getResAsync(key: string) {
