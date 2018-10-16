@@ -19,7 +19,7 @@ class testGameTicker extends egret.DisplayObjectContainer {
         //   GameEvent.dispatch(GameEvent.EVENT.Login);
 
         //zip资源获取
-        // GameRes.getRes("config/buffdesc.json").then(function (rs) {
+        // GameRes.getZipRes("config/buffdesc.json").then(function (rs) {
         //     var b = StringWithFormat(rs[7].desc, 20)
         //     egret.log(b);
         // });
@@ -34,7 +34,7 @@ class testGameTicker extends egret.DisplayObjectContainer {
     //promise 使用
     public get(key: string) {
 
-        GameRes.getRes("config/buffdesc.json").then(function(rs) {
+        GameRes.getZipRes("config/buffdesc.json").then(function(rs) {
             var b = StringWithFormat(rs[7].desc, 20)
             egret.log(b);
         }).catch(function (rej) {

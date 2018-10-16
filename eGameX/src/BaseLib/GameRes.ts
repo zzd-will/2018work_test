@@ -47,40 +47,39 @@ namespace GameRes {
 
                         } else if (subkey.indexOf(".tmx") >= 0) {
                             result = egret.XML.parse(data)
-                            resole(result); resole(result);
+                            resole(result); 
 
                         } else {
                             result = "parse data failed!";
                             rejcet(result);
                         }
-
-
                     })
-
-
                 })
-
             }
         });
 
     }
-    export function getRes(key: string) {
+    export function getZipRes(key: string) {
 
         return new Promise(function (resole, rejcet) {
-
             if (RES.hasRes(key)) {
                 RES.getRes(key).then(function (rs, rej) {
                     resole(rs)
                 })
-
             } else {
-                rejcet("getRes not have this key: " + key)
+                rejcet("getZipRes not have this key: " + key)
             }
-
         })
-
-
     }
+    export function getRes(key: string) {
+            if (RES.hasRes(key)) {
+               return  RES.getRes(key)
+            } else {
+               egret.log("getRes not have this key: " + key);
+               return  undefined
+            }
+    }
+
     export function getResAsync(key: string) {
         if (RES.hasRes(key)) {
             return RES.getResAsync(key);

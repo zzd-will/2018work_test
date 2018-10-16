@@ -8,17 +8,17 @@ class MovieClipDataLoader {
     public dispatcher: egret.EventDispatcher;
 
     public get(key: string, callback: Function) {
-        GameRes.getRes(key).then(function (rs) {
+        GameRes.getZipRes(key).then(function (rs) {
             this.url = key;
             callback(rs);
         }).catch(function(rej){
              this.fetch(key, callback)
         })
     }
-    public fetch(e, t) {
-        this.url = e,
+    public fetch(key: string, callback: Function) {
+        this.url = key,
             this.dispatcher = new egret.EventDispatcher(),
-            this.handle = t,
+            this.handle = callback,
             this.dispatcher.once(egret.Event.COMPLETE, this.onEvent, this)
     }
     public onEvent(e) {
