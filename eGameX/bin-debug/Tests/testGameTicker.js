@@ -30,6 +30,12 @@ var testGameTicker = (function (_super) {
         });
         //普通资源获取
         var res = GameRes.getRes("track_png");
+        var test = "A_B_C_12345876.json";
+        var aa = test.indexOf(".");
+        var bb = test.lastIndexOf("_");
+        var cc = test.slice(bb + 1, aa);
+        var dd = test.split(".");
+        var ee = test.split("_");
         //promise使用
         _this.get("");
         return _this;

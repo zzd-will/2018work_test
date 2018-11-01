@@ -29,6 +29,19 @@ class testGameTicker extends egret.DisplayObjectContainer {
 
          var res =  GameRes.getRes("track_png");
 
+         var test:string = "A_B_C_12345876.json"
+
+         var aa =test.indexOf(".");
+         var bb =test.lastIndexOf("_");
+        var cc=  test.slice(bb+1,aa);
+
+        var dd = test.split(".")
+        var ee = test.split("_")
+
+
+
+         
+
 
         //promise使用
         this.get("");
