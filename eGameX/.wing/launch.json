@@ -23,7 +23,7 @@
 			"webRoot": "${workspaceRoot}",
 			"preLaunchTask":"build",
 			"userDataDir":"${tmpdir}",
-			"port":5811
+			"port":5284
 		}
 	]
 }

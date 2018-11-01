@@ -22,16 +22,15 @@
 //       public frame;
 //         constructor(){
 //             super();
-
 //             this.source = "",
 //             this.name = "",
 //             this.position = "center",
-//             this.touchEnabled = !1,
-//             this.touchChildren = !1,
-//             this.contentJustify = !1,
-//             this.justify = !0,
-//             this.auto = !1,
-//             this.removeWhenComplete = !0
+//             this.touchEnabled = false,
+//             this.touchChildren = false,
+//             this.contentJustify = false,
+//             this.justify = true,
+//             this.auto = false,
+//             this.removeWhenComplete = true
 //         }
 //          public  childrenCreated(){
 //             super.childrenCreated();
@@ -86,10 +85,14 @@
 //         }
 //         public load(e, t) {
 //             var n = this;
-//             null != e && "" != e && null != t && (null == this.loader && (this.loader = new MovieClipDataLoader), null == this.loader.dispatcher && (RES.addRel(e), this.loader.get(e,
+//             null != e && "" != e && null != t && (null == this.loader && (this.loader = new MovieClipDataLoader),
+//             null == this.loader.dispatcher && (this.loader.get(e,
 //             function(i) {
 //                 var a = i.generateMovieClipData(t);
-//                 null == n.mc ? (n.mc = new egret.MovieClip(a), n.mc.addEventListener(egret.MovieClipEvent.COMPLETE, n.onMovieClipComplete, n), n.addChild(n.mc)) : (n.mc.movieClipData = a, n.mc.visible = !0, n.invalidateSize(), null == n.mc.parent && n.addChild(n.mc)),
+//                 null == n.mc ? (n.mc = new egret.MovieClip(a),
+//                  n.mc.addEventListener(egret.MovieClipEvent.COMPLETE, n.onMovieClipComplete, n),
+//                   n.addChild(n.mc)) 
+//                   : (n.mc.movieClipData = a, n.mc.visible = !0, n.invalidateSize(), null == n.mc.parent && n.addChild(n.mc)),
 //                 n.mc.blendMode = tables.blendMode[e],
 //                 n.contentJustify ? (n.width = n.mc.width, n.height = n.mc.height, eui.PropertyEvent.dispatchPropertyEvent(n, eui.PropertyEvent.PROPERTY_CHANGE, "contentWidth"), eui.PropertyEvent.dispatchPropertyEvent(n, eui.PropertyEvent.PROPERTY_CHANGE, "contentHeight")) : n.justify && (n.mc.scaleX = n.width / n.mc.width, n.mc.scaleY = n.height / n.mc.height),
 //                 n.updatePosition(),

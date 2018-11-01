@@ -19,17 +19,22 @@ class testGameTicker extends egret.DisplayObjectContainer {
         //   GameEvent.dispatch(GameEvent.EVENT.Login);
 
         //zip资源获取
-        // GameRes.getZipRes("config/buffdesc.json").then(function (rs) {
-        //     var b = StringWithFormat(rs[7].desc, 20)
-        //     egret.log(b);
-        // });
+        GameRes.getZipRes("config/buffdesc.json").then(function (rs) {
+            var b = StringWithFormat(rs[7].desc, 20)
+            egret.log(b);
+        });
+    
+
+        //普通资源获取
+
+         var res =  GameRes.getRes("track_png");
 
 
         //promise使用
-        // this.get("");
+        this.get("");
 
         //tables json 加载
-        tables.load();
+        // tables.load();
     }
     //promise 使用
     public get(key: string) {
@@ -42,6 +47,14 @@ class testGameTicker extends egret.DisplayObjectContainer {
         });
 
     }
+
+    //  img.onload = ()=>{
+    //      console.log("onload");
+    //  }
+    // }
+
+
+
 
 
 }

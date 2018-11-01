@@ -75,7 +75,6 @@ var GameRes;
                         else if (subkey.indexOf(".tmx") >= 0) {
                             result = egret.XML.parse(data);
                             resole(result);
-                            resole(result);
                         }
                         else {
                             result = "parse data failed!";
@@ -87,7 +86,7 @@ var GameRes;
         });
     }
     GameRes.preInit = preInit;
-    function getRes(key) {
+    function getZipRes(key) {
         return new Promise(function (resole, rejcet) {
             if (RES.hasRes(key)) {
                 RES.getRes(key).then(function (rs, rej) {
@@ -95,9 +94,19 @@ var GameRes;
                 });
             }
             else {
-                rejcet("getRes not have this key: " + key);
+                rejcet("getZipRes not have this key: " + key);
             }
         });
+    }
+    GameRes.getZipRes = getZipRes;
+    function getRes(key) {
+        if (RES.hasRes(key)) {
+            return RES.getRes(key);
+        }
+        else {
+            egret.log("getRes not have this key: " + key);
+            return undefined;
+        }
     }
     GameRes.getRes = getRes;
     function getResAsync(key) {

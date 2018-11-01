@@ -22,7 +22,7 @@ const config: ResourceManagerConfig = {
                     new EmitResConfigFilePlugin({
                         output: "resource/default.res.json",
                         typeSelector: config.typeSelector,
-                        nameSelector: p => path.basename(p).replace(/\./gi, "_"),
+                        nameSelector: p => path.basename(p),
                         groupSelector: p => "preload"
                     }),
                     new ExmlPlugin('debug'), // 非 EUI 项目关闭此设置
@@ -83,9 +83,18 @@ const config: ResourceManagerConfig = {
         if (type == "json") {
             if (path.indexOf("sheet") >= 0) {
                 type = "sheet";
-            } else if (path.indexOf("movieclip") >= 0) {
-                type = "movieclip";
-            };
+            } else if (path.indexOf("title") == 0) {
+            type = "movieclip";
+        }
+        else if (path.indexOf("actor") == 0) {
+            type = "movieclip";
+        }
+        else if (path.indexOf("skill") == 0) {
+            type = "movieclip";
+        }
+        else if (path.indexOf("mc") == 9) {//resource
+            type = "movieclip";
+        }
         }
         return type;
     }

@@ -83,15 +83,12 @@ namespace GameRes {
     export function getResAsync(key: string) {
         if (RES.hasRes(key)) {
             return RES.getResAsync(key);
-
         } else {
             egret.log("getResAsync not have this key: ", key);
             return false;
         }
 
     }
-
-
     export function init() {
         var JsonObjs, objName, ojbNames, needIndex, needName, needObj, optionRes, s, l, c;
         ojbNames = [];
