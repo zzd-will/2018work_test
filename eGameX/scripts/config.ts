@@ -19,11 +19,6 @@ const config: ResourceManagerConfig = {
             return {
                 outputDir,
                 commands: [
-                    new RenamePlugin({
-                        verbose: true, hash: 'crc32', matchers: [
-                            { from: "resource/**", to: "[path][name]_[hash].[ext]" }
-                        ]
-                    }),
                     new EmitResConfigFilePlugin({
                         output: "resource/default.res.json",
                         typeSelector: config.typeSelector,
@@ -52,6 +47,12 @@ const config: ResourceManagerConfig = {
                             { from: "**/*.js", to: "[path][name]_[hash].[ext]" },
                             { from: "resource/**", to: "[path][name]_[hash].[ext]" }
                         ]
+                    }),
+                    new EmitResConfigFilePlugin({
+                        output: "resource/default.res.json",
+                        typeSelector: config.typeSelector,
+                        nameSelector: p => path.basename(p),
+                        groupSelector: p => path.basename(p)
                     }),
                     new ManifestPlugin({ output: "manifest.json" })
                 ]
@@ -90,17 +91,17 @@ const config: ResourceManagerConfig = {
             if (path.indexOf("sheet") >= 0) {
                 type = "sheet";
             } else if (path.indexOf("title") == 0) {
-                type = "movieclip";
-            }
-            else if (path.indexOf("actor") == 0) {
-                type = "movieclip";
-            }
-            else if (path.indexOf("skill") == 0) {
-                type = "movieclip";
-            }
-            else if (path.indexOf("mc") == 9) {//resource
-                type = "movieclip";
-            }
+            type = "movieclip";
+        }
+        else if (path.indexOf("actor") == 0) {
+            type = "movieclip";
+        }
+        else if (path.indexOf("skill") == 0) {
+            type = "movieclip";
+        }
+        else if (path.indexOf("mc") == 9) {//resource
+            type = "movieclip";
+        }
         }
         return type;
     }
