@@ -29,18 +29,13 @@ var testGameTicker = (function (_super) {
             egret.log(b);
         });
         //普通资源获取
-        var res = GameRes.getRes("track_png");
-        var test = "A_B_C_12345876.json";
-        var aa = test.indexOf(".");
-        var bb = test.lastIndexOf("_");
-        var cc = test.slice(bb + 1, aa);
-        var dd = test.split(".");
-        var ee = test.split("_");
+        //  var res =  GameRes.getRes("track.png");
         //promise使用
-        _this.get("");
-        return _this;
+        // this.get("");
         //tables json 加载
         // tables.load();
+        _this.test();
+        return _this;
     }
     //promise 使用
     testGameTicker.prototype.get = function (key) {
@@ -49,6 +44,19 @@ var testGameTicker = (function (_super) {
             egret.log(b);
         }).catch(function (rej) {
             egret.log(rej);
+        });
+    };
+    //  img.onload = ()=>{
+    //      console.log("onload");
+    //  }
+    // }
+    testGameTicker.prototype.test = function () {
+        var mc = new MovieClipDataLoader();
+        mc.get("st_2_1.json", function (res) {
+            console.log(res);
+        });
+        mc.fetch("st_2_1.json", function (rs) {
+            console.log(rs);
         });
     };
     return testGameTicker;

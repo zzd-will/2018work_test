@@ -52,7 +52,7 @@ const config: ResourceManagerConfig = {
                         output: "resource/default.res.json",
                         typeSelector: config.typeSelector,
                         nameSelector: p => path.basename(p),
-                        groupSelector: p => path.basename(p)
+                        groupSelector: p =>"preload"
                     }),
                     new ManifestPlugin({ output: "manifest.json" })
                 ]

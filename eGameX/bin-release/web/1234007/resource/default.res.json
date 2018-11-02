@@ -1,0 +1,255 @@
+{
+	"groups": [
+		{
+			"name": "preload",
+			"keys": "config.zip,default.thm.json,bg.jpg,egret_icon.png,description.json,ButtonSkin.exml,CheckBoxSkin.exml,HScrollBarSkin.exml,HSliderSkin.exml,ItemRendererSkin.exml,PanelSkin.exml,ProgressBarSkin.exml,RadioButtonSkin.exml,ScrollerSkin.exml,TextInputSkin.exml,ToggleSwitchSkin.exml,VScrollBarSkin.exml,VSliderSkin.exml,st_2_1.json,st_2_1.png,button_down.png,button_up.png,checkbox_select_disabled.png,checkbox_select_down.png,checkbox_select_up.png,checkbox_unselect.png,border.png,header.png,selected.png,thumb_pb.png,track_pb.png,radiobutton_select_disabled.png,radiobutton_select_down.png,radiobutton_select_up.png,radiobutton_unselect.png,roundthumb.png,track_sb.png,thumb.png,track.png,tracklight.png,handle.png,off.png,on.png,o.png,outside11_01.jpg,outside11_02.jpg,outside11_03.jpg,outside11_04.jpg,outside11_11.jpg"
+		}
+	],
+	"resources": [
+		{
+			"url": "config.zip",
+			"type": "zip",
+			"name": "config.zip"
+		},
+		{
+			"url": "default.thm.json",
+			"type": "json",
+			"name": "default.thm.json"
+		},
+		{
+			"url": "assets/bg.jpg",
+			"type": "image",
+			"name": "bg.jpg"
+		},
+		{
+			"url": "assets/egret_icon.png",
+			"type": "image",
+			"name": "egret_icon.png"
+		},
+		{
+			"url": "config/description.json",
+			"type": "json",
+			"name": "description.json"
+		},
+		{
+			"url": "eui_skins/ButtonSkin.exml",
+			"type": "text",
+			"name": "ButtonSkin.exml"
+		},
+		{
+			"url": "eui_skins/CheckBoxSkin.exml",
+			"type": "text",
+			"name": "CheckBoxSkin.exml"
+		},
+		{
+			"url": "eui_skins/HScrollBarSkin.exml",
+			"type": "text",
+			"name": "HScrollBarSkin.exml"
+		},
+		{
+			"url": "eui_skins/HSliderSkin.exml",
+			"type": "text",
+			"name": "HSliderSkin.exml"
+		},
+		{
+			"url": "eui_skins/ItemRendererSkin.exml",
+			"type": "text",
+			"name": "ItemRendererSkin.exml"
+		},
+		{
+			"url": "eui_skins/PanelSkin.exml",
+			"type": "text",
+			"name": "PanelSkin.exml"
+		},
+		{
+			"url": "eui_skins/ProgressBarSkin.exml",
+			"type": "text",
+			"name": "ProgressBarSkin.exml"
+		},
+		{
+			"url": "eui_skins/RadioButtonSkin.exml",
+			"type": "text",
+			"name": "RadioButtonSkin.exml"
+		},
+		{
+			"url": "eui_skins/ScrollerSkin.exml",
+			"type": "text",
+			"name": "ScrollerSkin.exml"
+		},
+		{
+			"url": "eui_skins/TextInputSkin.exml",
+			"type": "text",
+			"name": "TextInputSkin.exml"
+		},
+		{
+			"url": "eui_skins/ToggleSwitchSkin.exml",
+			"type": "text",
+			"name": "ToggleSwitchSkin.exml"
+		},
+		{
+			"url": "eui_skins/VScrollBarSkin.exml",
+			"type": "text",
+			"name": "VScrollBarSkin.exml"
+		},
+		{
+			"url": "eui_skins/VSliderSkin.exml",
+			"type": "text",
+			"name": "VSliderSkin.exml"
+		},
+		{
+			"url": "mc/st_2_1.json",
+			"type": "movieclip",
+			"name": "st_2_1.json"
+		},
+		{
+			"url": "mc/st_2_1.png",
+			"type": "image",
+			"name": "st_2_1.png"
+		},
+		{
+			"url": "assets/Button/button_down.png",
+			"type": "image",
+			"name": "button_down.png"
+		},
+		{
+			"url": "assets/Button/button_up.png",
+			"type": "image",
+			"name": "button_up.png"
+		},
+		{
+			"url": "assets/CheckBox/checkbox_select_disabled.png",
+			"type": "image",
+			"name": "checkbox_select_disabled.png"
+		},
+		{
+			"url": "assets/CheckBox/checkbox_select_down.png",
+			"type": "image",
+			"name": "checkbox_select_down.png"
+		},
+		{
+			"url": "assets/CheckBox/checkbox_select_up.png",
+			"type": "image",
+			"name": "checkbox_select_up.png"
+		},
+		{
+			"url": "assets/CheckBox/checkbox_unselect.png",
+			"type": "image",
+			"name": "checkbox_unselect.png"
+		},
+		{
+			"url": "assets/Panel/border.png",
+			"type": "image",
+			"name": "border.png"
+		},
+		{
+			"url": "assets/Panel/header.png",
+			"type": "image",
+			"name": "header.png"
+		},
+		{
+			"url": "assets/ItemRenderer/selected.png",
+			"type": "image",
+			"name": "selected.png"
+		},
+		{
+			"url": "assets/ProgressBar/thumb_pb.png",
+			"type": "image",
+			"name": "thumb_pb.png"
+		},
+		{
+			"url": "assets/ProgressBar/track_pb.png",
+			"type": "image",
+			"name": "track_pb.png"
+		},
+		{
+			"url": "assets/RadioButton/radiobutton_select_disabled.png",
+			"type": "image",
+			"name": "radiobutton_select_disabled.png"
+		},
+		{
+			"url": "assets/RadioButton/radiobutton_select_down.png",
+			"type": "image",
+			"name": "radiobutton_select_down.png"
+		},
+		{
+			"url": "assets/RadioButton/radiobutton_select_up.png",
+			"type": "image",
+			"name": "radiobutton_select_up.png"
+		},
+		{
+			"url": "assets/RadioButton/radiobutton_unselect.png",
+			"type": "image",
+			"name": "radiobutton_unselect.png"
+		},
+		{
+			"url": "assets/ScrollBar/roundthumb.png",
+			"type": "image",
+			"name": "roundthumb.png"
+		},
+		{
+			"url": "assets/ScrollBar/track_sb.png",
+			"type": "image",
+			"name": "track_sb.png"
+		},
+		{
+			"url": "assets/Slider/thumb.png",
+			"type": "image",
+			"name": "thumb.png"
+		},
+		{
+			"url": "assets/Slider/track.png",
+			"type": "image",
+			"name": "track.png"
+		},
+		{
+			"url": "assets/Slider/tracklight.png",
+			"type": "image",
+			"name": "tracklight.png"
+		},
+		{
+			"url": "assets/ToggleSwitch/handle.png",
+			"type": "image",
+			"name": "handle.png"
+		},
+		{
+			"url": "assets/ToggleSwitch/off.png",
+			"type": "image",
+			"name": "off.png"
+		},
+		{
+			"url": "assets/ToggleSwitch/on.png",
+			"type": "image",
+			"name": "on.png"
+		},
+		{
+			"url": "outsidemap/mapimg/o.png",
+			"type": "image",
+			"name": "o.png"
+		},
+		{
+			"url": "outsidemap/mapimg/outside11/images/outside11_01.jpg",
+			"type": "image",
+			"name": "outside11_01.jpg"
+		},
+		{
+			"url": "outsidemap/mapimg/outside11/images/outside11_02.jpg",
+			"type": "image",
+			"name": "outside11_02.jpg"
+		},
+		{
+			"url": "outsidemap/mapimg/outside11/images/outside11_03.jpg",
+			"type": "image",
+			"name": "outside11_03.jpg"
+		},
+		{
+			"url": "outsidemap/mapimg/outside11/images/outside11_04.jpg",
+			"type": "image",
+			"name": "outside11_04.jpg"
+		},
+		{
+			"url": "outsidemap/mapimg/outside11/images/outside11_11.jpg",
+			"type": "image",
+			"name": "outside11_11.jpg"
+		}
+	]
+}

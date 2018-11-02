@@ -27,27 +27,15 @@ class testGameTicker extends egret.DisplayObjectContainer {
 
         //普通资源获取
 
-         var res =  GameRes.getRes("track_png");
-
-         var test:string = "A_B_C_12345876.json"
-
-         var aa =test.indexOf(".");
-         var bb =test.lastIndexOf("_");
-        var cc=  test.slice(bb+1,aa);
-
-        var dd = test.split(".")
-        var ee = test.split("_")
-
-
-
-         
-
+        //  var res =  GameRes.getRes("track.png");
 
         //promise使用
-        this.get("");
+        // this.get("");
 
         //tables json 加载
         // tables.load();
+
+        this.test();
     }
     //promise 使用
     public get(key: string) {
@@ -66,6 +54,17 @@ class testGameTicker extends egret.DisplayObjectContainer {
     //  }
     // }
 
+    public test(){
+
+        var mc = new MovieClipDataLoader()
+        mc.get("st_2_1.json",function(res){
+            console.log(res)
+        });
+
+        mc.fetch("st_2_1.json",(rs)=>{
+            console.log(rs)
+        })
+    }
 
 
 

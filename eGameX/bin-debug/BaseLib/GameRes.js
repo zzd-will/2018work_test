@@ -99,6 +99,11 @@ var GameRes;
         });
     }
     GameRes.getZipRes = getZipRes;
+    /**
+     * 获取非zip里面的资源，这里是非异步获取
+     * exp:
+     * var rs = getRes("key")
+     */
     function getRes(key) {
         if (RES.hasRes(key)) {
             return RES.getRes(key);
@@ -109,9 +114,12 @@ var GameRes;
         }
     }
     GameRes.getRes = getRes;
-    function getResAsync(key) {
+    /**
+     * 获取非zip里面的资源，这里是异步获取
+     */
+    function getResAsync(key, callback, thisObj) {
         if (RES.hasRes(key)) {
-            return RES.getResAsync(key);
+            return callback ? RES.getResAsync(key, callback, thisObj) : RES.getResAsync(key);
         }
         else {
             egret.log("getResAsync not have this key: ", key);

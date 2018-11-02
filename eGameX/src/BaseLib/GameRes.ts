@@ -71,6 +71,11 @@ namespace GameRes {
             }
         })
     }
+    /**
+     * 获取非zip里面的资源，这里是非异步获取
+     * exp:
+     * var rs = getRes("key")
+     */
     export function getRes(key: string) {
             if (RES.hasRes(key)) {
                return  RES.getRes(key)
@@ -79,15 +84,16 @@ namespace GameRes {
                return  undefined
             }
     }
-
-    export function getResAsync(key: string) {
+    /**
+     * 获取非zip里面的资源，这里是异步获取
+     */
+    export function getResAsync(key: string,callback?,thisObj?) {
         if (RES.hasRes(key)) {
-            return RES.getResAsync(key);
+          return  callback ?  RES.getResAsync(key,callback,thisObj): RES.getResAsync(key)
         } else {
             egret.log("getResAsync not have this key: ", key);
             return false;
         }
-
     }
     export function init() {
         var JsonObjs, objName, ojbNames, needIndex, needName, needObj, optionRes, s, l, c;
