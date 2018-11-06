@@ -9,64 +9,97 @@ class ScreenAdapter implements egret.sys.IScreenAdapter {
     public calculateStageSize(scaleMode: string, screenWidth: number, screenHeight: number,
         contentWidth: number, contentHeight: number): egret.sys.StageDisplaySize {
 
-        var r = screenWidth,
-        o = screenHeight,
-        s = contentWidth,
-        l = contentHeight,
-        c = screenWidth / s || 0,
-        u = screenHeight / l || 0;
 
+        let displayWidth = screenWidth;
+        let displayHeight = screenHeight;
+        let stageWidth = contentWidth;
+        let stageHeight = contentHeight;
+        let scaleX = (screenWidth / stageWidth) || 0;
+        let scaleY = (screenHeight / stageHeight) || 0;
         switch (scaleMode) {
-        case egret.StageScaleMode.EXACT_FIT:
-            break;
-        case egret.StageScaleMode.FIXED_HEIGHT:
-            s = Math.round(screenWidth / u);
-            break;
-        case egret.StageScaleMode.FIXED_WIDTH:
-            l = Math.round(screenHeight / c);
-            break;
-        case egret.StageScaleMode.NO_BORDER:
-            c > u ? o = Math.round(l * c) : r = Math.round(s * u);
-            break;
-        case egret.StageScaleMode.SHOW_ALL:
-            c > u ? r = Math.round(s * u) : o = Math.round(l * c);
-            break;
-        case egret.StageScaleMode.FIXED_NARROW:
-            c > u ? s = Math.round(screenWidth / u) : l = Math.round(screenHeight / c);
-            break;
-        case egret.StageScaleMode.FIXED_WIDE:
-            c > u ? l = Math.round(screenHeight / c) : s = Math.round(screenWidth / u);
-            break;
-        case "custom":
-            if (egret.Capabilities.isMobile) c > u ? s = Math.round(screenWidth / u) : l = Math.round(screenHeight / c);
-            else {
-                var h = 1024,
-                d = 880;
-                r = screenWidth > h ? h: screenWidth,
-                o = screenHeight > d ? d: screenHeight;
-                var p = r / s || 0,
-                g = o / l || 0;
-                p > g ? s = Math.round(r / g) : l = Math.round(o / p)
+            case egret.StageScaleMode.EXACT_FIT:
+                break;
+            case egret.StageScaleMode.FIXED_HEIGHT:
+                stageWidth = Math.round(screenWidth / scaleY);
+                break;
+            case egret.StageScaleMode.FIXED_WIDTH:
+                stageHeight = Math.round(screenHeight / scaleX);
+                break;
+            case egret.StageScaleMode.NO_BORDER:
+                if (scaleX > scaleY) {
+                    displayHeight = Math.round(stageHeight * scaleX);
+                }
+                else {
+                    displayWidth = Math.round(stageWidth * scaleY);
+                }
+                break;
+            case egret.StageScaleMode.SHOW_ALL:
+                if (scaleX > scaleY) {
+                    displayWidth = Math.round(stageWidth * scaleY);
+                }
+                else {
+                    displayHeight = Math.round(stageHeight * scaleX);
+                }
+                break;
+            case egret.StageScaleMode.FIXED_NARROW:
+                if (scaleX > scaleY) {
+                    stageWidth = Math.round(screenWidth / scaleY);
+                }
+                else {
+                    stageHeight = Math.round(screenHeight / scaleX);
+                }
+                break;
+            case egret.StageScaleMode.FIXED_WIDE:
+                if (scaleX > scaleY) {
+                    stageHeight = Math.round(screenHeight / scaleX);
+                }
+                else {
+                    stageWidth = Math.round(screenWidth / scaleY);
+                }
+                break;
+            //自定义缩放模式
+            case "custom":
+                if (egret.Capabilities.isMobile) {
+                    if (scaleX > scaleY) {
+                        stageWidth = Math.round(screenWidth / scaleY)
+                    } else { Math.round(screenHeight / scaleX); }
+                }
+                else {
+                    var h = 1024,
+                        d = 880;
+                    displayWidth = screenWidth > h ? h : screenWidth,
+                        displayHeight = screenHeight > d ? d : screenHeight;
+                    var p = displayWidth / stageWidth || 0,
+                        g = displayHeight / stageHeight || 0;
+                    p > g ? stageWidth = Math.round(displayWidth / g) : stageHeight = Math.round(displayHeight / p)
+                }
+                break;
+            default:
+                stageWidth = screenWidth;
+                stageHeight = screenHeight;
+                break;
+        }
+        if (egret.Capabilities.runtimeType != egret.RuntimeType.WXGAME) {
+            //宽高不是2的整数倍会导致图片绘制出现问题
+            if (stageWidth % 2 != 0) {
+                stageWidth += 1;
             }
-            break;
-        default:
-            s = screenWidth,
-            l = screenHeight
+            if (stageHeight % 2 != 0) {
+                stageHeight += 1;
+            }
+            if (displayWidth % 2 != 0) {
+                displayWidth += 1;
+            }
+            if (displayHeight % 2 != 0) {
+                displayHeight += 1;
+            }
         }
-
-        s % 2 != 0 && (s += 1);
-        l % 2 != 0 && (l += 1);
-        r % 2 != 0 && (r += 1);
-        o % 2 != 0 && (o += 1);
-
-        var obj= {
-            stageWidth: s,
-            stageHeight: l,
-            displayWidth: r,
-            displayHeight: o
-        }
-
-        return obj;
+        return {
+            stageWidth: stageWidth,
+            stageHeight: stageHeight,
+            displayWidth: displayWidth,
+            displayHeight: displayHeight
+        };
     }
 
 }
