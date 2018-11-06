@@ -106,6 +106,7 @@ class Main extends eui.UILayer {
         // timer.start();
 
         var gameticker = new testGameTicker();
+        this.addChild(gameticker);
      
     }
   

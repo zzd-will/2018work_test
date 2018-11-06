@@ -14,13 +14,13 @@ var MovieClipDataLoader = (function () {
             this.fetch(key, callback);
         }
     };
-    MovieClipDataLoader.prototype.fetch = function (key, callback) {
-        this.url = key;
+    MovieClipDataLoader.prototype.fetch = function (url, callback) {
+        this.url = url;
         this.handle = callback;
-        GameRes.getResAsync(key, callback, this);
+        RES.getResByUrl(url, this.onEvent, this, RES.ResourceItem.TYPE_JSON);
     };
     MovieClipDataLoader.prototype.onEvent = function (e) {
-        this.handle(e.data),
+        this.handle(e),
             this.handle = null;
     };
     MovieClipDataLoader.prototype.release = function () {

@@ -2,7 +2,7 @@
 	"groups": [
 		{
 			"name": "preload",
-			"keys": "config.zip,default.thm.json,bg.jpg,egret_icon.png,description.json,ButtonSkin.exml,CheckBoxSkin.exml,HScrollBarSkin.exml,HSliderSkin.exml,ItemRendererSkin.exml,PanelSkin.exml,ProgressBarSkin.exml,RadioButtonSkin.exml,ScrollerSkin.exml,TextInputSkin.exml,ToggleSwitchSkin.exml,VScrollBarSkin.exml,VSliderSkin.exml,st_2_1.json,st_2_1.png,button_down.png,button_up.png,checkbox_select_disabled.png,checkbox_select_down.png,checkbox_select_up.png,checkbox_unselect.png,selected.png,border.png,header.png,thumb_pb.png,track_pb.png,radiobutton_select_disabled.png,radiobutton_select_down.png,radiobutton_select_up.png,radiobutton_unselect.png,roundthumb.png,track_sb.png,thumb.png,track.png,tracklight.png,handle.png,off.png,on.png,o.png,outside11_01.jpg,outside11_02.jpg,outside11_03.jpg,outside11_04.jpg,outside11_11.jpg"
+			"keys": "config.zip,default.thm.json,description.json,bg.jpg,egret_icon.png,ButtonSkin.exml,CheckBoxSkin.exml,HScrollBarSkin.exml,HSliderSkin.exml,ItemRendererSkin.exml,PanelSkin.exml,ProgressBarSkin.exml,RadioButtonSkin.exml,ScrollerSkin.exml,TextInputSkin.exml,ToggleSwitchSkin.exml,VScrollBarSkin.exml,VSliderSkin.exml,die_3.json,die_3.png,skill02.json,skill02.png,tw_dingshen.json,tw_dingshen.png,wd_shifa1.json,wd_shifa1.png,checkbox_select_disabled.png,checkbox_select_down.png,checkbox_select_up.png,checkbox_unselect.png,selected.png,button_down.png,button_up.png,border.png,header.png,thumb_pb.png,track_pb.png,roundthumb.png,track_sb.png,radiobutton_select_disabled.png,radiobutton_select_down.png,radiobutton_select_up.png,radiobutton_unselect.png,thumb.png,track.png,tracklight.png,handle.png,off.png,on.png,o.png,outside11_01.jpg,outside11_02.jpg,outside11_03.jpg,outside11_04.jpg,outside11_11.jpg"
 		}
 	],
 	"resources": [
@@ -17,6 +17,11 @@
 			"name": "default.thm.json"
 		},
 		{
+			"url": "config/description.json",
+			"type": "json",
+			"name": "description.json"
+		},
+		{
 			"url": "assets/bg.jpg",
 			"type": "image",
 			"name": "bg.jpg"
@@ -25,11 +30,6 @@
 			"url": "assets/egret_icon.png",
 			"type": "image",
 			"name": "egret_icon.png"
-		},
-		{
-			"url": "config/description.json",
-			"type": "json",
-			"name": "description.json"
 		},
 		{
 			"url": "eui_skins/ButtonSkin.exml",
@@ -97,24 +97,44 @@
 			"name": "VSliderSkin.exml"
 		},
 		{
-			"url": "mc/st_2_1.json",
+			"url": "mc/die_3.json",
 			"type": "movieclip",
-			"name": "st_2_1.json"
+			"name": "die_3.json"
 		},
 		{
-			"url": "mc/st_2_1.png",
+			"url": "mc/die_3.png",
 			"type": "image",
-			"name": "st_2_1.png"
+			"name": "die_3.png"
 		},
 		{
-			"url": "assets/Button/button_down.png",
-			"type": "image",
-			"name": "button_down.png"
+			"url": "mc/skill02.json",
+			"type": "movieclip",
+			"name": "skill02.json"
 		},
 		{
-			"url": "assets/Button/button_up.png",
+			"url": "mc/skill02.png",
 			"type": "image",
-			"name": "button_up.png"
+			"name": "skill02.png"
+		},
+		{
+			"url": "mc/tw_dingshen.json",
+			"type": "movieclip",
+			"name": "tw_dingshen.json"
+		},
+		{
+			"url": "mc/tw_dingshen.png",
+			"type": "image",
+			"name": "tw_dingshen.png"
+		},
+		{
+			"url": "mc/wd_shifa1.json",
+			"type": "movieclip",
+			"name": "wd_shifa1.json"
+		},
+		{
+			"url": "mc/wd_shifa1.png",
+			"type": "image",
+			"name": "wd_shifa1.png"
 		},
 		{
 			"url": "assets/CheckBox/checkbox_select_disabled.png",
@@ -142,6 +162,16 @@
 			"name": "selected.png"
 		},
 		{
+			"url": "assets/Button/button_down.png",
+			"type": "image",
+			"name": "button_down.png"
+		},
+		{
+			"url": "assets/Button/button_up.png",
+			"type": "image",
+			"name": "button_up.png"
+		},
+		{
 			"url": "assets/Panel/border.png",
 			"type": "image",
 			"name": "border.png"
@@ -162,6 +192,16 @@
 			"name": "track_pb.png"
 		},
 		{
+			"url": "assets/ScrollBar/roundthumb.png",
+			"type": "image",
+			"name": "roundthumb.png"
+		},
+		{
+			"url": "assets/ScrollBar/track_sb.png",
+			"type": "image",
+			"name": "track_sb.png"
+		},
+		{
 			"url": "assets/RadioButton/radiobutton_select_disabled.png",
 			"type": "image",
 			"name": "radiobutton_select_disabled.png"
@@ -180,16 +220,6 @@
 			"url": "assets/RadioButton/radiobutton_unselect.png",
 			"type": "image",
 			"name": "radiobutton_unselect.png"
-		},
-		{
-			"url": "assets/ScrollBar/roundthumb.png",
-			"type": "image",
-			"name": "roundthumb.png"
-		},
-		{
-			"url": "assets/ScrollBar/track_sb.png",
-			"type": "image",
-			"name": "track_sb.png"
 		},
 		{
 			"url": "assets/Slider/thumb.png",

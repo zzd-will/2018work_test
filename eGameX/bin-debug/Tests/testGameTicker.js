@@ -34,7 +34,7 @@ var testGameTicker = (function (_super) {
         // this.get("");
         //tables json 加载
         // tables.load();
-        _this.test();
+        _this.testmc();
         return _this;
     }
     //promise 使用
@@ -58,6 +58,19 @@ var testGameTicker = (function (_super) {
         mc.fetch("st_2_1.json", function (rs) {
             console.log(rs);
         });
+    };
+    testGameTicker.prototype.testmc = function () {
+        var mc = new UI.MovieClipComponent;
+        // mc.Load("skill02.json","skill02")
+        // mc.Load("wd_shifa1.json","wd_shifa1")
+        mc.Load("tw_dingshen.json", "tw_dingshen");
+        // mc.auto = true; 
+        mc.play(2);
+        // mc.justify = false;
+        // mc.contentJustify=false;
+        mc.x = 500;
+        mc.y = 400;
+        this.addChild(mc);
     };
     return testGameTicker;
 }(egret.DisplayObjectContainer));

@@ -35,7 +35,7 @@ class testGameTicker extends egret.DisplayObjectContainer {
         //tables json 加载
         // tables.load();
 
-        this.test();
+        this.testmc();
     }
     //promise 使用
     public get(key: string) {
@@ -64,6 +64,23 @@ class testGameTicker extends egret.DisplayObjectContainer {
         mc.fetch("st_2_1.json",(rs)=>{
             console.log(rs)
         })
+    }
+
+    public testmc(){
+
+        var mc = new UI.MovieClipComponent
+        // mc.Load("skill02.json","skill02")
+        // mc.Load("wd_shifa1.json","wd_shifa1")
+        mc.Load("tw_dingshen.json","tw_dingshen")
+        // mc.auto = true; 
+       mc.play(2)
+        // mc.justify = false;
+        // mc.contentJustify=false;
+
+        mc. x =500;
+        mc. y = 400
+        this.addChild(mc);
+
     }
 
 

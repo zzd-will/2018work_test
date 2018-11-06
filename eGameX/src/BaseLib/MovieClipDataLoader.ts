@@ -5,11 +5,10 @@ class MovieClipDataLoader {
 
     public url;
     public handle;
-    public dispatcher: egret.EventDispatcher;
     public movieClipData;
 
     public get(key: string, callback: Function) {
-        var rs = GameRes.getRes(key)
+        var rs :egret.MovieClipDataFactory= GameRes.getRes(key)
         if (rs) {
             this.url = key;
             callback(rs);
@@ -18,14 +17,14 @@ class MovieClipDataLoader {
         }
 
     }
-    public fetch(key: string, callback: Function) {
-        this.url = key
+    public fetch(url: string, callback: Function) {
+        this.url = url
         this.handle = callback;
-        GameRes.getResAsync(key,callback,this)
+        RES.getResByUrl(url,this.onEvent,this,RES.ResourceItem.TYPE_JSON)
     }
-    public onEvent(e) {
-        this.handle(e.data),
-            this.handle = null
+    public onEvent(e:egret.MovieClipData) {
+        this.handle(e),
+        this.handle = null
     }
     public release() {
         null != this.movieClipData && (this.movieClipData = null),

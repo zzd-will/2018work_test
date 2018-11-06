@@ -169,6 +169,7 @@ var Main = (function (_super) {
         // var timer = new testTimer();
         // timer.start();
         var gameticker = new testGameTicker();
+        this.addChild(gameticker);
     };
     return Main;
 }(eui.UILayer));
