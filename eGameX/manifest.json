@@ -26,6 +26,7 @@
 		"bin-debug/LoadingUI.js",
 		"bin-debug/BaseLib/MovieClipComponent.js",
 		"bin-debug/BaseLib/MovieClipDataLoader.js",
+		"bin-debug/BaseLib/ScreenAdapter.js",
 		"bin-debug/BaseLib/Singleton.js",
 		"bin-debug/BaseLib/Tables.js",
 		"bin-debug/Tests/testGameTicker.js",

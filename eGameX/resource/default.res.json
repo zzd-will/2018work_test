@@ -2,7 +2,7 @@
 	"groups": [
 		{
 			"name": "preload",
-			"keys": "config.zip,default.thm.json,bg.jpg,egret_icon.png,description.json,ButtonSkin.exml,CheckBoxSkin.exml,HScrollBarSkin.exml,HSliderSkin.exml,ItemRendererSkin.exml,PanelSkin.exml,ProgressBarSkin.exml,RadioButtonSkin.exml,ScrollerSkin.exml,TextInputSkin.exml,ToggleSwitchSkin.exml,VScrollBarSkin.exml,VSliderSkin.exml,die_3.json,die_3.png,skill02.json,skill02.png,tw_dingshen.json,tw_dingshen.png,wd_shifa1.json,wd_shifa1.png,button_down.png,button_up.png,selected.png,checkbox_select_disabled.png,checkbox_select_down.png,checkbox_select_up.png,checkbox_unselect.png,border.png,header.png,thumb_pb.png,track_pb.png,radiobutton_select_disabled.png,radiobutton_select_down.png,radiobutton_select_up.png,radiobutton_unselect.png,roundthumb.png,track_sb.png,thumb.png,track.png,tracklight.png,handle.png,off.png,on.png,o.png,outside11_01.jpg,outside11_02.jpg,outside11_03.jpg,outside11_04.jpg,outside11_11.jpg"
+			"keys": "config.zip,default.thm.json,bg.jpg,egret_icon.png,description.json,ButtonSkin.exml,CheckBoxSkin.exml,HScrollBarSkin.exml,HSliderSkin.exml,ItemRendererSkin.exml,PanelSkin.exml,ProgressBarSkin.exml,RadioButtonSkin.exml,ScrollerSkin.exml,TextInputSkin.exml,ToggleSwitchSkin.exml,VScrollBarSkin.exml,VSliderSkin.exml,die_3.json,die_3.png,skill02.json,skill02.png,tw_dingshen.json,tw_dingshen.png,wd_shifa1.json,wd_shifa1.png,button_down.png,button_up.png,checkbox_select_disabled.png,checkbox_select_down.png,checkbox_select_up.png,checkbox_unselect.png,selected.png,border.png,header.png,thumb_pb.png,track_pb.png,radiobutton_select_disabled.png,radiobutton_select_down.png,radiobutton_select_up.png,radiobutton_unselect.png,roundthumb.png,track_sb.png,thumb.png,track.png,tracklight.png,handle.png,off.png,on.png,o.png,outside11_01.jpg,outside11_02.jpg,outside11_03.jpg,outside11_04.jpg,outside11_11.jpg"
 		}
 	],
 	"resources": [
@@ -147,11 +147,6 @@
 			"name": "button_up.png"
 		},
 		{
-			"url": "assets/ItemRenderer/selected.png",
-			"type": "image",
-			"name": "selected.png"
-		},
-		{
 			"url": "assets/CheckBox/checkbox_select_disabled.png",
 			"type": "image",
 			"name": "checkbox_select_disabled.png"
@@ -170,6 +165,11 @@
 			"url": "assets/CheckBox/checkbox_unselect.png",
 			"type": "image",
 			"name": "checkbox_unselect.png"
+		},
+		{
+			"url": "assets/ItemRenderer/selected.png",
+			"type": "image",
+			"name": "selected.png"
 		},
 		{
 			"url": "assets/Panel/border.png",
