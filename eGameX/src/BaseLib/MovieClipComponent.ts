@@ -32,8 +32,8 @@ namespace UI {
         }
         public childrenCreated() {
             super.childrenCreated();
-            this.load(this.source, this.name),
-                this.addEventListener(egret.Event.RESIZE, this.onResize, this)
+            this.load(this.source, this.name);
+            this.addEventListener(egret.Event.RESIZE, this.onResize, this)
         }
         public updatePosition() {
             switch (this.position) {
@@ -95,10 +95,6 @@ namespace UI {
                 this.load(source, name)
             )
         }
-        public onLoaded(e) {
-            this.source,
-                this.name
-        }
         private load(url: string, name: string) {
 
             var thisobj = this;
@@ -150,8 +146,8 @@ namespace UI {
             }
 
         }
-        public gotoAndStop(e) {
-            null != this.mc && this.mc.gotoAndStop(e)
+        public gotoAndStop(frame: string | number) {
+            null != this.mc && this.mc.gotoAndStop(frame)
         }
         public onMovieClipComplete() {
             this.removeWhenComplete ? Game.removeFromParent.apply(this) : this.visible = false
@@ -162,15 +158,15 @@ namespace UI {
                 this.mc.play(playTimes)
             }
         }
-        public gotoAndPlay(e, t) {
-            this.frame = e,
-                this.playTimes = t,
-                null != this.mc && this.mc.gotoAndPlay(e, t)
+        public gotoAndPlay(frame: string | number, playTimes?: number) {
+            this.frame = frame;
+            this.playTimes = playTimes;
+            null != this.mc && this.mc.gotoAndPlay(frame, playTimes)
         }
         public stop() {
-            this.playTimes = null,
-                this.frame = null,
-                null != this.mc && this.mc.stop()
+            this.playTimes = null;
+            this.frame = null;
+            null != this.mc && this.mc.stop()
         }
         //自动测量合适的显示宽高
         public measure() {

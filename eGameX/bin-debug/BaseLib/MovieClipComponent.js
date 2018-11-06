@@ -28,8 +28,8 @@ var UI;
         }
         MovieClipComponent.prototype.childrenCreated = function () {
             _super.prototype.childrenCreated.call(this);
-            this.load(this.source, this.name),
-                this.addEventListener(egret.Event.RESIZE, this.onResize, this);
+            this.load(this.source, this.name);
+            this.addEventListener(egret.Event.RESIZE, this.onResize, this);
         };
         MovieClipComponent.prototype.updatePosition = function () {
             switch (this.position) {
@@ -88,61 +88,55 @@ var UI;
                 this.source = source, this.name = name,
                 this.load(source, name));
         };
-        MovieClipComponent.prototype.onLoaded = function (e) {
-            this.source,
-                this.name;
-        };
         MovieClipComponent.prototype.load = function (url, name) {
             var thisobj = this;
             if (null != url && "" != url && null != name) {
                 if (null == this.loader) {
                     this.loader = new MovieClipDataLoader;
                 }
-                if (null == this.loader.dispatcher) {
-                    this.loader.get(url, function (mcf) {
-                        var mcd = mcf.generateMovieClipData(name);
-                        if (null == thisobj.mc) {
-                            thisobj.mc = new egret.MovieClip(mcd);
-                            thisobj.mc.addEventListener(egret.MovieClipEvent.COMPLETE, thisobj.onMovieClipComplete, thisobj);
-                            thisobj.addChild(thisobj.mc);
+                this.loader.get(url, function (mcf) {
+                    var mcd = mcf.generateMovieClipData(name);
+                    if (null == thisobj.mc) {
+                        thisobj.mc = new egret.MovieClip(mcd);
+                        thisobj.mc.addEventListener(egret.MovieClipEvent.COMPLETE, thisobj.onMovieClipComplete, thisobj);
+                        thisobj.addChild(thisobj.mc);
+                    }
+                    else {
+                        thisobj.mc.movieClipData = mcd;
+                        thisobj.mc.visible = true;
+                        thisobj.invalidateSize();
+                        null == thisobj.mc.parent && thisobj.addChild(thisobj.mc);
+                    }
+                    thisobj.mc.blendMode = tables.blendMode[0];
+                    if (thisobj.contentJustify) {
+                        thisobj.width = thisobj.mc.width;
+                        thisobj.height = thisobj.mc.height;
+                        eui.PropertyEvent.dispatchPropertyEvent(thisobj, eui.PropertyEvent.PROPERTY_CHANGE, "contentWidth");
+                        eui.PropertyEvent.dispatchPropertyEvent(thisobj, eui.PropertyEvent.PROPERTY_CHANGE, "contentHeight");
+                    }
+                    else {
+                        if (thisobj.justify) {
+                            thisobj.mc.scaleX = thisobj.width / thisobj.mc.width;
+                            thisobj.mc.scaleY = thisobj.height / thisobj.mc.height;
+                        }
+                    }
+                    thisobj.updatePosition();
+                    if (null != thisobj.playTimes || null != thisobj.frame) {
+                        if (null != thisobj.frame) {
+                            thisobj.mc.gotoAndPlay(thisobj.frame, thisobj.playTimes);
                         }
                         else {
-                            thisobj.mc.movieClipData = mcd;
-                            thisobj.mc.visible = true;
-                            thisobj.invalidateSize();
-                            null == thisobj.mc.parent && thisobj.addChild(thisobj.mc);
+                            thisobj.mc.play(thisobj.playTimes);
                         }
-                        thisobj.mc.blendMode = tables.blendMode[0];
-                        if (thisobj.contentJustify) {
-                            thisobj.width = thisobj.mc.width;
-                            thisobj.height = thisobj.mc.height;
-                            eui.PropertyEvent.dispatchPropertyEvent(thisobj, eui.PropertyEvent.PROPERTY_CHANGE, "contentWidth");
-                            eui.PropertyEvent.dispatchPropertyEvent(thisobj, eui.PropertyEvent.PROPERTY_CHANGE, "contentHeight");
-                        }
-                        else {
-                            if (thisobj.justify) {
-                                thisobj.mc.scaleX = thisobj.width / thisobj.mc.width;
-                                thisobj.mc.scaleY = thisobj.height / thisobj.mc.height;
-                            }
-                        }
-                        thisobj.updatePosition();
-                        if (null != thisobj.playTimes || null != thisobj.frame) {
-                            if (null != thisobj.frame) {
-                                thisobj.mc.gotoAndPlay(thisobj.frame, thisobj.playTimes);
-                            }
-                            else {
-                                thisobj.mc.play(thisobj.playTimes);
-                            }
-                        }
-                        else {
-                            thisobj.auto && thisobj.mc.play(-1);
-                        }
-                    });
-                }
+                    }
+                    else {
+                        thisobj.auto && thisobj.mc.play(-1);
+                    }
+                });
             }
         };
-        MovieClipComponent.prototype.gotoAndStop = function (e) {
-            null != this.mc && this.mc.gotoAndStop(e);
+        MovieClipComponent.prototype.gotoAndStop = function (frame) {
+            null != this.mc && this.mc.gotoAndStop(frame);
         };
         MovieClipComponent.prototype.onMovieClipComplete = function () {
             this.removeWhenComplete ? Game.removeFromParent.apply(this) : this.visible = false;
@@ -153,16 +147,17 @@ var UI;
                 this.mc.play(playTimes);
             }
         };
-        MovieClipComponent.prototype.gotoAndPlay = function (e, t) {
-            this.frame = e,
-                this.playTimes = t,
-                null != this.mc && this.mc.gotoAndPlay(e, t);
+        MovieClipComponent.prototype.gotoAndPlay = function (frame, playTimes) {
+            this.frame = frame;
+            this.playTimes = playTimes;
+            null != this.mc && this.mc.gotoAndPlay(frame, playTimes);
         };
         MovieClipComponent.prototype.stop = function () {
-            this.playTimes = null,
-                this.frame = null,
-                null != this.mc && this.mc.stop();
+            this.playTimes = null;
+            this.frame = null;
+            null != this.mc && this.mc.stop();
         };
+        //自动测量合适的显示宽高
         MovieClipComponent.prototype.measure = function () {
             null != this.mc ? this.setMeasuredSize(this.mc.width, this.mc.height) : _super.prototype.measure.call(this);
         };
