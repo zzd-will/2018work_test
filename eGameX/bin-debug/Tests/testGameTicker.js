@@ -61,11 +61,11 @@ var testGameTicker = (function (_super) {
     };
     testGameTicker.prototype.testmc = function () {
         var mc = new UI.MovieClipComponent;
-        // mc.Load("skill02.json","skill02")
+        mc.Load("skill02.json", "skill02");
         // mc.Load("wd_shifa1.json","wd_shifa1")
-        mc.Load("tw_dingshen.json", "tw_dingshen");
-        // mc.auto = true; 
-        mc.play(2);
+        // mc.Load("tw_dingshen.json","tw_dingshen")
+        mc.auto = true;
+        //    mc.play(-1)
         // mc.justify = false;
         // mc.contentJustify=false;
         mc.x = 500;

@@ -6,9 +6,7 @@ namespace UI {
     export class MovieClipComponent extends eui.Component {
 
         public mc: egret.MovieClip;
-
         public position = "center";
-
         public source:string;
         public contentJustify:boolean;
         public justify:boolean;
@@ -16,8 +14,8 @@ namespace UI {
         public removeWhenComplete:boolean;
         public loader: MovieClipDataLoader;
 
-        public playTimes;
-        public frame;
+        public playTimes:number;
+        public frame:string | number;
         constructor() {
             super();
             this.source = "",
