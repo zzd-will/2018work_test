@@ -9,11 +9,11 @@ namespace UI {
 
         public position = "center";
 
-        public source;
-        public contentJustify;
-        public justify;
-        public auto;
-        public removeWhenComplete;
+        public source:string;
+        public contentJustify:boolean;
+        public justify:boolean;
+        public auto:boolean;
+        public removeWhenComplete:boolean;
         public loader: MovieClipDataLoader;
 
         public playTimes;
