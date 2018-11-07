@@ -1,13 +1,14 @@
 
-namespace GameEvent {
-
+namespace Game {
 
     var dispatcher = new egret.EventDispatcher()
 
     export var EVENT = {
-        Login: "Login",
-        LoadingSuccess: "LoadingSuccess",
-        LoadingFailed: "LoadingFailed",
+        LOGIN: "Login",
+        LOADING_SUCCESS: "LoadingSuccess",
+        LOADING_FAILED: "LoadingFailed",
+        SHOW_LAYER:"ShowLayer",
+        HIDE_LAYER:"HideLayer"
 
     }
     export function dispatch(event: string, data?: any) {

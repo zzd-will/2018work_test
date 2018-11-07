@@ -62,13 +62,15 @@ class ScreenAdapter implements egret.sys.IScreenAdapter {
                 if (egret.Capabilities.isMobile) {
                     if (scaleX > scaleY) {
                         stageWidth = Math.round(screenWidth / scaleY)
-                    } else { Math.round(screenHeight / scaleX); }
+                    } else {
+                        stageHeight = Math.round(screenHeight / scaleX);
+                    }
                 }
                 else {
                     var h = 1024,
                         d = 880;
-                    displayWidth = screenWidth > h ? h : screenWidth,
-                        displayHeight = screenHeight > d ? d : screenHeight;
+                    displayWidth = screenWidth > h ? h : screenWidth;
+                    displayHeight = screenHeight > d ? d : screenHeight;
                     var p = displayWidth / stageWidth || 0,
                         g = displayHeight / stageHeight || 0;
                     p > g ? stageWidth = Math.round(displayWidth / g) : stageHeight = Math.round(displayHeight / p)
