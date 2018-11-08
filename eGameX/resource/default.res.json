@@ -2,7 +2,7 @@
 	"groups": [
 		{
 			"name": "preload",
-			"keys": "config.zip,default.thm.json,bg.jpg,egret_icon.png,description.json,ButtonSkin.exml,CheckBoxSkin.exml,HScrollBarSkin.exml,HSliderSkin.exml,ItemRendererSkin.exml,PanelSkin.exml,ProgressBarSkin.exml,RadioButtonSkin.exml,ScrollerSkin.exml,TextInputSkin.exml,ToggleSwitchSkin.exml,VScrollBarSkin.exml,VSliderSkin.exml,die_3.json,die_3.png,skill02.json,skill02.png,tw_dingshen.json,tw_dingshen.png,wd_shifa1.json,wd_shifa1.png,button_down.png,button_up.png,checkbox_select_disabled.png,checkbox_select_down.png,checkbox_select_up.png,checkbox_unselect.png,selected.png,border.png,header.png,thumb_pb.png,track_pb.png,radiobutton_select_disabled.png,radiobutton_select_down.png,radiobutton_select_up.png,radiobutton_unselect.png,roundthumb.png,track_sb.png,thumb.png,track.png,tracklight.png,handle.png,off.png,on.png,o.png,outside11_01.jpg,outside11_02.jpg,outside11_03.jpg,outside11_04.jpg,outside11_11.jpg"
+			"keys": "config.zip,default.thm.json,10vs10.png,Loading.exml,Prompt.png,giftDesc5.png,guild_fire.png,load.png,loading.png,loading_bg_under.jpg,logo.png,pro_up1.png,bg.jpg,egret_icon.png,description.json,ButtonSkin.exml,CheckBoxSkin.exml,HScrollBarSkin.exml,HSliderSkin.exml,ItemRendererSkin.exml,PanelSkin.exml,ProgressBarSkin.exml,RadioButtonSkin.exml,ScrollerSkin.exml,TextInputSkin.exml,ToggleSwitchSkin.exml,VScrollBarSkin.exml,VSliderSkin.exml,die_3.json,die_3.png,skill02.json,skill02.png,tw_dingshen.json,tw_dingshen.png,wd_shifa1.json,wd_shifa1.png,button_down.png,button_up.png,checkbox_select_disabled.png,checkbox_select_down.png,checkbox_select_up.png,checkbox_unselect.png,selected.png,border.png,header.png,thumb_pb.png,track_pb.png,radiobutton_select_disabled.png,radiobutton_select_down.png,radiobutton_select_up.png,radiobutton_unselect.png,roundthumb.png,track_sb.png,thumb.png,track.png,tracklight.png,handle.png,off.png,on.png,o.png,outside11_01.jpg,outside11_02.jpg,outside11_03.jpg,outside11_04.jpg,outside11_11.jpg"
 		}
 	],
 	"resources": [
@@ -15,6 +15,56 @@
 			"url": "default.thm.json",
 			"type": "json",
 			"name": "default.thm.json"
+		},
+		{
+			"url": "UI/10vs10.png",
+			"type": "image",
+			"name": "10vs10.png"
+		},
+		{
+			"url": "UI/Loading.exml",
+			"type": "text",
+			"name": "Loading.exml"
+		},
+		{
+			"url": "UI/Prompt.png",
+			"type": "image",
+			"name": "Prompt.png"
+		},
+		{
+			"url": "UI/giftDesc5.png",
+			"type": "image",
+			"name": "giftDesc5.png"
+		},
+		{
+			"url": "UI/guild_fire.png",
+			"type": "image",
+			"name": "guild_fire.png"
+		},
+		{
+			"url": "UI/load.png",
+			"type": "image",
+			"name": "load.png"
+		},
+		{
+			"url": "UI/loading.png",
+			"type": "image",
+			"name": "loading.png"
+		},
+		{
+			"url": "UI/loading_bg_under.jpg",
+			"type": "image",
+			"name": "loading_bg_under.jpg"
+		},
+		{
+			"url": "UI/logo.png",
+			"type": "image",
+			"name": "logo.png"
+		},
+		{
+			"url": "UI/pro_up1.png",
+			"type": "image",
+			"name": "pro_up1.png"
 		},
 		{
 			"url": "assets/bg.jpg",

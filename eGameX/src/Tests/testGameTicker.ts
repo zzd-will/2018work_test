@@ -23,7 +23,7 @@ class testGameTicker extends egret.DisplayObjectContainer {
             var b = StringWithFormat(rs[7].desc, 20)
             egret.log(b);
         });
-    
+
 
         //普通资源获取
 
@@ -35,12 +35,13 @@ class testGameTicker extends egret.DisplayObjectContainer {
         //tables json 加载
         // tables.load();
 
-        this.testmc();
+        // this.testmc();
+        this.testui();
     }
     //promise 使用
     public get(key: string) {
 
-        GameRes.getZipRes("config/buffdesc.json").then(function(rs) {
+        GameRes.getZipRes("config/buffdesc.json").then(function (rs) {
             var b = StringWithFormat(rs[7].desc, 20)
             egret.log(b);
         }).catch(function (rej) {
@@ -54,36 +55,72 @@ class testGameTicker extends egret.DisplayObjectContainer {
     //  }
     // }
 
-    public test(){
+    public test() {
 
         var mc = new MovieClipDataLoader()
-        mc.get("st_2_1.json",function(res){
+        mc.get("st_2_1.json", function (res) {
             console.log(res)
         });
 
-        mc.fetch("st_2_1.json",(rs)=>{
+        mc.fetch("st_2_1.json", (rs) => {
             console.log(rs)
         })
     }
 
-    public testmc(){
+    public testmc() {
 
         var mc = new UI.MovieClipComponent
-        mc.Load("skill02.json","skill02")
+        mc.Load("skill02.json", "skill02")
         // mc.Load("wd_shifa1.json","wd_shifa1")
         // mc.Load("tw_dingshen.json","tw_dingshen")
-        mc.auto = true; 
-    //    mc.play(-1)
+        mc.auto = true;
+        //    mc.play(-1)
         // mc.justify = false;
         // mc.contentJustify=false;
 
-        mc. x =500;
-        mc. y = 400
+        mc.x = 500;
+        mc.y = 400
         this.addChild(mc);
+
+    }
+    public testui() {
+
+        var loadingView = new LoadingUICT();
+
+        loadingView.skinName = RES.getRes("Loading.exml")
+
+        loadingView.once(egret.Event.ADDED_TO_STAGE,
+            function () {
+                var e = document.getElementById("launchDiv");
+                null != e && e.parentNode.removeChild(e)
+            },
+            null)
+        loadingView.verticalCenter = 0
+        loadingView.horizontalCenter = 0
+
+        var euiLayer = new eui.UILayer
+        euiLayer.addChild(loadingView);
+        euiLayer.touchEnabled = !1
+
+        this.addChild(euiLayer);
 
     }
 
 
 
+}
 
+class TestSkin extends eui.Component {
+    constructor() {
+        super();
+        this.addEventListener(eui.UIEvent.COMPLETE, this.onComplete, this);
+        this.skinName = "resource/UI/Loading.exml";
+    }
+    protected createChildren() {
+        super.createChildren();
+        console.log("createChildren")
+    }
+    private onComplete(): void {
+        console.log("onComplete");
+    }
 }

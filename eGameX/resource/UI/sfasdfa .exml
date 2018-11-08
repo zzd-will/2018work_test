@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="sfasdfa " width="400" height="300" xmlns:e="http://ns.egret.com/eui">
+	<e:Image width="202" height="176" x="87" y="61" anchorOffsetX="0" anchorOffsetY="0" source="10vs10.png"/>
+</e:Skin>

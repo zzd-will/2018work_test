@@ -1,19 +1,21 @@
-var GameEvent;
-(function (GameEvent) {
+var Game;
+(function (Game) {
     var dispatcher = new egret.EventDispatcher();
-    GameEvent.EVENT = {
-        Login: "Login",
-        LoadingSuccess: "LoadingSuccess",
-        LoadingFailed: "LoadingFailed",
+    Game.EVENT = {
+        LOGIN: "Login",
+        LOADING_SUCCESS: "LoadingSuccess",
+        LOADING_FAILED: "LoadingFailed",
+        SHOW_LAYER: "ShowLayer",
+        HIDE_LAYER: "HideLayer"
     };
     function dispatch(event, data) {
         void 0 === event && (event = null);
         dispatcher.dispatchEventWith(event, false, data);
     }
-    GameEvent.dispatch = dispatch;
+    Game.dispatch = dispatch;
     function add(type, listener, thisObject, useCapture, priority) {
         dispatcher.addEventListener(type, listener, thisObject);
     }
-    GameEvent.add = add;
-})(GameEvent || (GameEvent = {}));
+    Game.add = add;
+})(Game || (Game = {}));
 //# sourceMappingURL=GameEvent.js.map

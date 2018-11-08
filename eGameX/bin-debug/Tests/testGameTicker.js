@@ -34,7 +34,8 @@ var testGameTicker = (function (_super) {
         // this.get("");
         //tables json 加载
         // tables.load();
-        _this.testmc();
+        // this.testmc();
+        _this.testui();
         return _this;
     }
     //promise 使用
@@ -72,7 +73,39 @@ var testGameTicker = (function (_super) {
         mc.y = 400;
         this.addChild(mc);
     };
+    testGameTicker.prototype.testui = function () {
+        var loadingView = new LoadingUICT();
+        loadingView.skinName = RES.getRes("Loading.exml");
+        loadingView.once(egret.Event.ADDED_TO_STAGE, function () {
+            var e = document.getElementById("launchDiv");
+            null != e && e.parentNode.removeChild(e);
+        }, null);
+        loadingView.verticalCenter = 0;
+        loadingView.horizontalCenter = 0;
+        var euiLayer = new eui.UILayer;
+        euiLayer.addChild(loadingView);
+        euiLayer.touchEnabled = !1;
+        this.addChild(euiLayer);
+    };
     return testGameTicker;
 }(egret.DisplayObjectContainer));
 __reflect(testGameTicker.prototype, "testGameTicker");
+var TestSkin = (function (_super) {
+    __extends(TestSkin, _super);
+    function TestSkin() {
+        var _this = _super.call(this) || this;
+        _this.addEventListener(eui.UIEvent.COMPLETE, _this.onComplete, _this);
+        _this.skinName = "resource/UI/Loading.exml";
+        return _this;
+    }
+    TestSkin.prototype.createChildren = function () {
+        _super.prototype.createChildren.call(this);
+        console.log("createChildren");
+    };
+    TestSkin.prototype.onComplete = function () {
+        console.log("onComplete");
+    };
+    return TestSkin;
+}(eui.Component));
+__reflect(TestSkin.prototype, "TestSkin");
 //# sourceMappingURL=testGameTicker.js.map

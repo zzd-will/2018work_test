@@ -19,12 +19,12 @@ const config: ResourceManagerConfig = {
             return {
                 outputDir,
                 commands: [
-                    new EmitResConfigFilePlugin({
-                        output: "resource/default.res.json",
-                        typeSelector: config.typeSelector,
-                        nameSelector: p => path.basename(p),
-                        groupSelector: p => "preload"
-                    }),
+                    // new EmitResConfigFilePlugin({
+                    //     output: "resource/default.res.json",
+                    //     typeSelector: config.typeSelector,
+                    //     nameSelector: p => path.basename(p),
+                    //     groupSelector: p => "preload"
+                    // }),
                     new ExmlPlugin('debug'), // 非 EUI 项目关闭此设置
                     new IncrementCompilePlugin(),
                 ]

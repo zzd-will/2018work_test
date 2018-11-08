@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="Loading" width="528" height="880" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<w:Config id="15bb34da0fb"/>
+	<e:Image source="{img}" horizontalCenter="0" top="0" bottom="0"/>
+	<e:Group horizontalCenter="0"  bottom="132">
+		<e:Group x="145" y="333" touchEnabled="false" visible="false">
+			<e:Label text="如果进度条君长时间不动，" size="14" fontFamily="Microsoft YaHei" bold="true" verticalCenter="0" y="161" scaleX="1" scaleY="1" horizontalCenter="0" textColor="0xf9f8f7" touchEnabled="false" stroke="1"/>
+			<e:Label id="refresh" text="点击刷新" size="14" fontFamily="Microsoft YaHei" bold="true" verticalCenter="0" y="171" scaleX="1" scaleY="1" horizontalCenter="0" x="10"  textColor="0x12ff00" touchEnabled="true" stroke="1"/>
+			<e:layout>
+				<e:HorizontalLayout gap="0" horizontalAlign="center" verticalAlign="middle"/>
+			</e:layout>
+		</e:Group>
+		<e:Group id="progressGroup" x="100" y="37" width="336" height="70">
+			<e:ProgressBar maximum="{maximum}" value="{value}" slideDuration="0" verticalCenter="0">
+				<e:skinName>
+				<e:Skin>
+					<e:Image source="loading.png" verticalCenter="0" left="0"/>
+					<e:Image id="thumb" verticalCenter="0" source="load.png" left="0"/>
+					<e:Label id="labelDisplay" textAlign="center" verticalAlign="middle" size="12" fontFamily="Tahoma" horizontalCenter="0" text="2544" backgroundColor="0x000000" textColor="0xfcfcf9" verticalCenter="0" stroke="1"/>
+				</e:Skin>
+				</e:skinName>
+			</e:ProgressBar>
+			<e:Image source="pro_up1.png" verticalCenter="2" anchorOffsetX="80" anchorOffsetY="64" x="{percent}"/>
+		</e:Group>
+		<e:Label text="江湖驿站传送中" size="14" fontFamily="Microsoft YaHei" bold="true" horizontalCenter="0" verticalCenter="23" stroke="1" textColor="0xfcfbf9"/>
+		<e:layout>
+			<e:VerticalLayout horizontalAlign="center" verticalAlign="middle"/>
+		</e:layout>
+	</e:Group>
+	<e:Image source="logo.png" horizontalCenter="0" verticalCenter="-172"/>
+	<e:Image horizontalCenter="112" verticalCenter="-283" source="10vs10.png"/>
+	<e:Group horizontalCenter="0" bottom="253">
+		<e:Image bottom="0" horizontalCenter="0" source="guild_fire.png" scaleX="0.9" scaleY="0.9"/>
+		<e:Image source="giftDesc5.png" horizontalCenter="0" scaleX="0.9" scaleY="0.9" bottom="189"/>
+	</e:Group>
+	<e:Image source="Prompt.png" bottom="2" horizontalCenter="0"/>
+</e:Skin>
