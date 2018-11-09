@@ -35,7 +35,8 @@ var testGameTicker = (function (_super) {
         //tables json 加载
         // tables.load();
         // this.testmc();
-        _this.testui();
+        // this.testui();
+        _this.testLayerManager();
         return _this;
     }
     //promise 使用
@@ -86,6 +87,9 @@ var testGameTicker = (function (_super) {
         euiLayer.addChild(loadingView);
         euiLayer.touchEnabled = !1;
         this.addChild(euiLayer);
+    };
+    testGameTicker.prototype.testLayerManager = function () {
+        LayerManager.Inst().showUI("LoadingUICT");
     };
     return testGameTicker;
 }(egret.DisplayObjectContainer));

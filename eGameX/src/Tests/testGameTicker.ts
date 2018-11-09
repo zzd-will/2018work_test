@@ -36,7 +36,9 @@ class testGameTicker extends egret.DisplayObjectContainer {
         // tables.load();
 
         // this.testmc();
-        this.testui();
+        // this.testui();
+        this.testLayerManager();
+        
     }
     //promise 使用
     public get(key: string) {
@@ -103,6 +105,12 @@ class testGameTicker extends egret.DisplayObjectContainer {
         euiLayer.touchEnabled = !1
 
         this.addChild(euiLayer);
+
+    }
+
+    public testLayerManager(){
+
+        LayerManager.Inst().showUI("LoadingUICT");
 
     }
 

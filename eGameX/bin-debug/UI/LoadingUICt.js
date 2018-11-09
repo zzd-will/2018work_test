@@ -29,8 +29,10 @@ var LoadingUICT = (function (_super) {
     __extends(LoadingUICT, _super);
     function LoadingUICT() {
         var _this = _super.call(this) || this;
-        // this.skinName = "resource/UI/Loading.exml"
+        //使用
+        _this.skinName = RES.getRes("Loading.exml");
         _this.img = "loading_bg_under.jpg";
+        _this.m_layer = LayerManager.EUI_LODING_LAYER;
         return _this;
     }
     LoadingUICT.prototype.childrenCreated = function () {

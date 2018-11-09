@@ -15,9 +15,11 @@ namespace UI{
 class  LoadingUICT extends BaseLayer {
  	public constructor() {
 		super();
-        // this.skinName = "resource/UI/Loading.exml"
+        //使用
+        this.skinName = RES.getRes("Loading.exml")
 
 		this.img = "loading_bg_under.jpg";
+        this.m_layer = LayerManager.EUI_LODING_LAYER
 
 	}
 	public img;

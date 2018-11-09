@@ -3,7 +3,7 @@
 	<w:Config id="15bb34da0fb"/>
 	<e:Image source="{img}" horizontalCenter="0" top="0" bottom="0"/>
 	<e:Group horizontalCenter="0"  bottom="132">
-		<e:Group x="145" y="333" touchEnabled="false" visible="false">
+		<e:Group x="145" y="333" touchEnabled="false">
 			<e:Label text="如果进度条君长时间不动，" size="14" fontFamily="Microsoft YaHei" bold="true" verticalCenter="0" y="161" scaleX="1" scaleY="1" horizontalCenter="0" textColor="0xf9f8f7" touchEnabled="false" stroke="1"/>
 			<e:Label id="refresh" text="点击刷新" size="14" fontFamily="Microsoft YaHei" bold="true" verticalCenter="0" y="171" scaleX="1" scaleY="1" horizontalCenter="0" x="10"  textColor="0x12ff00" touchEnabled="true" stroke="1"/>
 			<e:layout>

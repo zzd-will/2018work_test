@@ -30,7 +30,7 @@ var LayerManager = (function (_super) {
             this.m_layerMap[s] = n;
         }
     };
-    LayerManager.prototype.initOneByOne = function () {
+    LayerManager.prototype.initOneByOne = function (root) {
         var mapLayer = new egret.DisplayObjectContainer, mapMessageLayer = new egret.DisplayObjectContainer, messageLayer = new eui.UILayer, uiLayer = new eui.UILayer, loadingLayer = new eui.UILayer, announceLayer = new eui.UILayer;
         uiLayer.touchEnabled = false,
             messageLayer.touchEnabled = false,
@@ -46,6 +46,11 @@ var LayerManager = (function (_super) {
             announceLayer.right = 0,
             announceLayer.top = 0,
             announceLayer.bottom = 0;
+        root.addChild(mapLayer);
+        root.addChild(mapMessageLayer);
+        root.addChild(uiLayer);
+        root.addChild(loadingLayer);
+        root.addChild(announceLayer);
         this.m_layerMap[LayerManager.DOC_MAP_LAYER] = mapLayer;
         this.m_layerMap[LayerManager.DOC_MAPMSG_LAYER] = mapMessageLayer;
         this.m_layerMap[LayerManager.EUI_UI_LAYER] = uiLayer;
@@ -74,9 +79,9 @@ var LayerManager = (function (_super) {
             if (null == cls)
                 console.warn("[" + ui_name + "] Class Not Defined....");
             else {
-                var layer = new cls;
-                this.m_UIMap[ui_name] = layer;
-                if (layer.mutex) {
+                var panel = new cls;
+                this.m_UIMap[ui_name] = panel;
+                if (panel.mutex) {
                     var s = [];
                     for (var a in this.m_UIMap) {
                         var r = this.m_UIMap[a];
@@ -87,15 +92,15 @@ var LayerManager = (function (_super) {
                         this.hideUI(b);
                     }
                 }
-                var l = this.m_layerMap[layer.layer];
-                if (layer.modal) {
-                    var d = Game.createMask(layer.modalAlpha);
+                var l = this.m_layerMap[panel.layer];
+                if (panel.modal) {
+                    var d = Game.createMask(panel.modalAlpha);
                     l.addChild(d);
-                    layer.__modal__mask = d;
+                    panel.__modal__mask = d;
                 }
-                l.addChild(layer);
-                this.playShowEffect(layer);
-                layer.setData(data);
+                l.addChild(panel);
+                this.playShowEffect(panel);
+                panel.setData(data);
                 Game.dispatch(Game.EVENT.SHOW_LAYER, ui_name);
                 console.log("[ShowLayer] >>> ", ui_name);
             }
