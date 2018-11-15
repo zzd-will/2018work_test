@@ -18,6 +18,9 @@ var LayerManager = (function () {
         enumerable: true,
         configurable: true
     });
+    /**
+     * 单屏类游戏初始化
+     */
     LayerManager.prototype.init = function (root) {
         this.m_root = root;
         for (var e = 0; e < LayerManager.LAYER_LIST.length; e++) {
@@ -31,7 +34,10 @@ var LayerManager = (function () {
             this.m_layerMap[s] = n;
         }
     };
-    LayerManager.prototype.initOneByOne = function (root) {
+    /**
+     * 大场景的初始化
+     */
+    LayerManager.prototype.init2 = function (root) {
         var mapLayer = new egret.DisplayObjectContainer, mapMessageLayer = new egret.DisplayObjectContainer, messageLayer = new eui.UILayer, uiLayer = new eui.UILayer, loadingLayer = new eui.UILayer, announceLayer = new eui.UILayer;
         uiLayer.touchEnabled = false,
             messageLayer.touchEnabled = false,
@@ -67,12 +73,12 @@ var LayerManager = (function () {
     ;
     LayerManager.prototype.isShow = function (ui_name) { return ui_name in this.m_UIMap; };
     LayerManager.prototype.getUIList = function () {
-        var e = [];
-        for (var t in this.m_UIMap) {
-            var i = this.m_UIMap[t];
-            e.push(i);
+        var UIlist = [];
+        for (var name in this.m_UIMap) {
+            var ui = this.m_UIMap[name];
+            UIlist.push(ui);
         }
-        return e;
+        return UIlist;
     };
     LayerManager.prototype.showUI = function (ui_name, data) {
         if (!this.m_UIMap[ui_name]) {
@@ -95,15 +101,15 @@ var LayerManager = (function () {
                 }
                 var layer = this.m_layerMap[UI.layerID];
                 if (UI.modal) {
-                    var d = Game.createMask(UI.modalAlpha);
-                    layer.addChild(d);
-                    UI.__modal__mask = d;
+                    var mask_sprite = Game.createMask(UI.modalAlpha);
+                    layer.addChild(mask_sprite);
+                    UI.__modal__mask = mask_sprite;
                 }
                 layer.addChild(UI);
                 this.playShowEffect(UI);
                 UI.setData(data);
                 Game.dispatch(Game.EVENT.SHOW_LAYER, ui_name);
-                console.log("[ShowLayer] >>> ", ui_name);
+                console.log("[ShowUI] >>> ", ui_name);
             }
         }
     };

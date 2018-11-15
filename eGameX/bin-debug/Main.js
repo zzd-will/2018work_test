@@ -260,7 +260,7 @@ var Main = (function (_super) {
      * Create a game scene
      */
     Main.prototype.createGameScene = function () {
-        LayerManager.inst.initOneByOne(this);
+        LayerManager.inst.init2(this);
         var gameticker = new testGameTicker();
         this.addChild(gameticker);
     };

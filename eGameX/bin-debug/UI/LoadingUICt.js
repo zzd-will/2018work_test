@@ -36,6 +36,11 @@ var LoadingUICT = (function (_super) {
         _this.m_layerID = LayerManager.EUI_LODING_LAYER;
         _this.verticalCenter = 0;
         _this.horizontalCenter = 0;
+        _this.m_effectType = 4;
+        _this.left = 0,
+            _this.right = 0,
+            _this.top = 0,
+            _this.bottom = 0;
         return _this;
     }
     LoadingUICT.prototype.childrenCreated = function () {
@@ -49,6 +54,7 @@ var LoadingUICT = (function (_super) {
             this.refresh.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRefresh, this);
     };
     LoadingUICT.prototype.onRefresh = function () {
+        // LayerManager.inst.hideUI("LoadingUICT");
         window.location.reload();
     };
     LoadingUICT.prototype.onProgress = function (e, t) {
