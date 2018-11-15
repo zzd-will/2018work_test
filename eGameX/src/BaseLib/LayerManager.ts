@@ -38,6 +38,9 @@ class LayerManager {
         this.m_layerEffectMap = {};
     }
 
+    /**
+     * 单屏类游戏初始化
+     */
     public init(root: eui.UILayer) {
 
         this.m_root = root;
@@ -52,7 +55,10 @@ class LayerManager {
             this.m_layerMap[s] = n;
         }
     }
-    public initOneByOne(root: egret.DisplayObjectContainer) {
+    /**
+     * 大场景的初始化
+     */
+    public init2(root: egret.DisplayObjectContainer) {
         var mapLayer = new egret.DisplayObjectContainer,
             mapMessageLayer = new egret.DisplayObjectContainer,
             messageLayer = new eui.UILayer,
@@ -122,15 +128,15 @@ class LayerManager {
                 }
                 var layer = this.m_layerMap[UI.layerID];
                 if (UI.modal) {
-                    var d = Game.createMask(UI.modalAlpha);
-                    layer.addChild(d);
-                    UI.__modal__mask = d
+                    var mask_sprite = Game.createMask(UI.modalAlpha);
+                    layer.addChild(mask_sprite);
+                    UI.__modal__mask = mask_sprite
                 }
                 layer.addChild(UI);
                 this.playShowEffect(UI);
                 UI.setData(data);
                 Game.dispatch(Game.EVENT.SHOW_LAYER, ui_name);
-                console.log("[ShowLayer] >>> ", ui_name)
+                console.log("[ShowUI] >>> ", ui_name)
             }
         }
     }
