@@ -1,22 +1,23 @@
 var __reflect = (this && this.__reflect) || function (p, c, t) {
     p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
 };
-var __extends = this && this.__extends || function __extends(t, e) { 
- function r() { 
- this.constructor = t;
-}
-for (var i in e) e.hasOwnProperty(i) && (t[i] = e[i]);
-r.prototype = e.prototype, t.prototype = new r();
-};
-var LayerManager = (function (_super) {
-    __extends(LayerManager, _super);
+var LayerManager = (function () {
     function LayerManager() {
-        var _this = _super.call(this) || this;
-        _this.m_layerMap = {};
-        _this.m_UIMap = {};
-        _this.m_layerEffectMap = {};
-        return _this;
+        this.m_layerMap = {};
+        this.m_UIMap = {};
+        this.m_layerEffectMap = {};
     }
+    Object.defineProperty(LayerManager, "inst", {
+        get: function () {
+            if (this.m_inst == null) {
+                this.m_inst = new LayerManager();
+                return this.m_inst;
+            }
+            return this.m_inst;
+        },
+        enumerable: true,
+        configurable: true
+    });
     LayerManager.prototype.init = function (root) {
         this.m_root = root;
         for (var e = 0; e < LayerManager.LAYER_LIST.length; e++) {
@@ -60,11 +61,11 @@ var LayerManager = (function (_super) {
     LayerManager.prototype.getRoot = function () {
         return this.m_root;
     };
-    LayerManager.prototype.getLayer = function (e) {
-        return this.m_layerMap[e];
+    LayerManager.prototype.getLayer = function (name) {
+        return this.m_layerMap[name];
     };
     ;
-    LayerManager.prototype.isShow = function (e) { return e in this.m_UIMap; };
+    LayerManager.prototype.isShow = function (ui_name) { return ui_name in this.m_UIMap; };
     LayerManager.prototype.getUIList = function () {
         var e = [];
         for (var t in this.m_UIMap) {
@@ -79,9 +80,9 @@ var LayerManager = (function (_super) {
             if (null == cls)
                 console.warn("[" + ui_name + "] Class Not Defined....");
             else {
-                var panel = new cls;
-                this.m_UIMap[ui_name] = panel;
-                if (panel.mutex) {
+                var UI = new cls;
+                this.m_UIMap[ui_name] = UI;
+                if (UI.mutex) {
                     var s = [];
                     for (var a in this.m_UIMap) {
                         var r = this.m_UIMap[a];
@@ -92,15 +93,15 @@ var LayerManager = (function (_super) {
                         this.hideUI(b);
                     }
                 }
-                var l = this.m_layerMap[panel.layer];
-                if (panel.modal) {
-                    var d = Game.createMask(panel.modalAlpha);
-                    l.addChild(d);
-                    panel.__modal__mask = d;
+                var layer = this.m_layerMap[UI.layerID];
+                if (UI.modal) {
+                    var d = Game.createMask(UI.modalAlpha);
+                    layer.addChild(d);
+                    UI.__modal__mask = d;
                 }
-                l.addChild(panel);
-                this.playShowEffect(panel);
-                panel.setData(data);
+                layer.addChild(UI);
+                this.playShowEffect(UI);
+                UI.setData(data);
                 Game.dispatch(Game.EVENT.SHOW_LAYER, ui_name);
                 console.log("[ShowLayer] >>> ", ui_name);
             }
@@ -197,6 +198,7 @@ var LayerManager = (function (_super) {
             Game.removeFromParent.apply(target.modalMask);
         }, this);
     };
+    LayerManager.m_inst = null;
     LayerManager.EUI_BTM_LAYER = "bottom";
     LayerManager.EUI_MID_LAYER = "middle";
     LayerManager.EUI_TOP_LAYER = "top";
@@ -211,6 +213,6 @@ var LayerManager = (function (_super) {
         LayerManager.EUI_TOP_LAYER, LayerManager.EUI_MSG_LAYER, LayerManager.DOC_MAP_LAYER,
         LayerManager.DOC_MAPMSG_LAYER];
     return LayerManager;
-}(Singleton));
+}());
 __reflect(LayerManager.prototype, "LayerManager");
 //# sourceMappingURL=LayerManager.js.map

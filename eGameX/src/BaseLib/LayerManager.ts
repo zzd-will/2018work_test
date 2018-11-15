@@ -1,4 +1,14 @@
-class LayerManager extends Singleton {
+class LayerManager {
+
+
+    private static m_inst: LayerManager = null;
+    public static get inst(): LayerManager {
+        if (this.m_inst == null) {
+            this.m_inst = new LayerManager();
+            return this.m_inst;
+        }
+        return this.m_inst;
+    }
 
 
     public m_layerMap;
@@ -23,7 +33,6 @@ class LayerManager extends Singleton {
     LayerManager.DOC_MAPMSG_LAYER]
 
     constructor() {
-        super();
         this.m_layerMap = {};
         this.m_UIMap = {};
         this.m_layerEffectMap = {};
@@ -43,7 +52,7 @@ class LayerManager extends Singleton {
             this.m_layerMap[s] = n;
         }
     }
-    public initOneByOne(root:egret.DisplayObjectContainer) {
+    public initOneByOne(root: egret.DisplayObjectContainer) {
         var mapLayer = new egret.DisplayObjectContainer,
             mapMessageLayer = new egret.DisplayObjectContainer,
             messageLayer = new eui.UILayer,
@@ -80,11 +89,10 @@ class LayerManager extends Singleton {
     public getRoot() {
         return this.m_root;
     }
-    public getLayer(e) {
-        return this.m_layerMap[e];
+    public getLayer(name: string) {
+        return this.m_layerMap[name];
     };
-    public isShow(e) { return e in this.m_UIMap }
-
+    public isShow(ui_name: string) { return ui_name in this.m_UIMap }
 
     public getUIList() {
         var e = [];
@@ -94,14 +102,14 @@ class LayerManager extends Singleton {
         }
         return e
     }
-    public showUI(ui_name: string, data?) {
+    public showUI(ui_name: string, data?: any) {
         if (!this.m_UIMap[ui_name]) {
             var cls = egret.getDefinitionByName(ui_name);
             if (null == cls) console.warn("[" + ui_name + "] Class Not Defined....");
             else {
-                var panel = new cls;
-                this.m_UIMap[ui_name] = panel;
-                if (panel.mutex) {
+                var UI = new cls;
+                this.m_UIMap[ui_name] = UI;
+                if (UI.mutex) {
                     var s = [];
                     for (var a in this.m_UIMap) {
                         var r = this.m_UIMap[a];
@@ -112,15 +120,15 @@ class LayerManager extends Singleton {
                         this.hideUI(b)
                     }
                 }
-                var l = this.m_layerMap[panel.layer];
-                if (panel.modal) {
-                    var d = Game.createMask(panel.modalAlpha);
-                    l.addChild(d);
-                    panel.__modal__mask = d
+                var layer = this.m_layerMap[UI.layerID];
+                if (UI.modal) {
+                    var d = Game.createMask(UI.modalAlpha);
+                    layer.addChild(d);
+                    UI.__modal__mask = d
                 }
-                l.addChild(panel);
-                this.playShowEffect(panel);
-                panel.setData(data);
+                layer.addChild(UI);
+                this.playShowEffect(UI);
+                UI.setData(data);
                 Game.dispatch(Game.EVENT.SHOW_LAYER, ui_name);
                 console.log("[ShowLayer] >>> ", ui_name)
             }

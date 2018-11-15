@@ -1,7 +1,7 @@
-class BaseLayer extends eui.Component {
+class BaseUI extends eui.Component {
 
 	protected m_data;
-	protected m_layer;
+	protected m_layerID;
 	protected m_mutex;
 	protected _cache;
 	protected m_modal;
@@ -15,7 +15,7 @@ class BaseLayer extends eui.Component {
 		super();
 		this.m_dataInited = false;
 		this.m_childrenCreated = false;
-		this.m_layer = LayerManager.EUI_UI_LAYER;
+		this.m_layerID = LayerManager.EUI_UI_LAYER;
 		this.m_mutex = false;
 		this.m_modal = false;
 		this.m_modalMask;
@@ -28,8 +28,8 @@ class BaseLayer extends eui.Component {
 		return this.m_data;
 	}
 
-	public get layer() {
-		return this.m_layer;
+	public get layerID() {
+		return this.m_layerID;
 	}
 	public get mutex() {
 		return this.m_mutex;

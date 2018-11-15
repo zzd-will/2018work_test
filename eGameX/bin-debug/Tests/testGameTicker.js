@@ -86,10 +86,10 @@ var testGameTicker = (function (_super) {
         var euiLayer = new eui.UILayer;
         euiLayer.addChild(loadingView);
         euiLayer.touchEnabled = !1;
-        this.addChild(euiLayer);
+        this.addChild(loadingView);
     };
     testGameTicker.prototype.testLayerManager = function () {
-        LayerManager.Inst().showUI("LoadingUICT");
+        LayerManager.inst.showUI("LoadingUICT");
     };
     return testGameTicker;
 }(egret.DisplayObjectContainer));

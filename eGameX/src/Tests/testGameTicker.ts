@@ -104,13 +104,13 @@ class testGameTicker extends egret.DisplayObjectContainer {
         euiLayer.addChild(loadingView);
         euiLayer.touchEnabled = !1
 
-        this.addChild(euiLayer);
+        this.addChild(loadingView);
 
     }
 
     public testLayerManager(){
 
-        LayerManager.Inst().showUI("LoadingUICT");
+        LayerManager.inst.showUI("LoadingUICT");
 
     }
 

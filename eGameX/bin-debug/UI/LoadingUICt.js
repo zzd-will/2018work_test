@@ -32,7 +32,10 @@ var LoadingUICT = (function (_super) {
         //使用
         _this.skinName = RES.getRes("Loading.exml");
         _this.img = "loading_bg_under.jpg";
-        _this.m_layer = LayerManager.EUI_LODING_LAYER;
+        //在哪个层上
+        _this.m_layerID = LayerManager.EUI_LODING_LAYER;
+        _this.verticalCenter = 0;
+        _this.horizontalCenter = 0;
         return _this;
     }
     LoadingUICT.prototype.childrenCreated = function () {
@@ -54,6 +57,6 @@ var LoadingUICT = (function (_super) {
             this.percent = this.progressGroup.width * this.value / this.maximum;
     };
     return LoadingUICT;
-}(BaseLayer));
+}(BaseUI));
 __reflect(LoadingUICT.prototype, "LoadingUICT");
 //# sourceMappingURL=LoadingUICt.js.map

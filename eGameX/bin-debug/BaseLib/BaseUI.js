@@ -8,13 +8,13 @@ var __extends = this && this.__extends || function __extends(t, e) {
 for (var i in e) e.hasOwnProperty(i) && (t[i] = e[i]);
 r.prototype = e.prototype, t.prototype = new r();
 };
-var BaseLayer = (function (_super) {
-    __extends(BaseLayer, _super);
-    function BaseLayer() {
+var BaseUI = (function (_super) {
+    __extends(BaseUI, _super);
+    function BaseUI() {
         var _this = _super.call(this) || this;
         _this.m_dataInited = false;
         _this.m_childrenCreated = false;
-        _this.m_layer = LayerManager.EUI_UI_LAYER;
+        _this.m_layerID = LayerManager.EUI_UI_LAYER;
         _this.m_mutex = false;
         _this.m_modal = false;
         _this.m_modalMask;
@@ -22,63 +22,63 @@ var BaseLayer = (function (_super) {
         _this.m_effectType = 0;
         return _this;
     }
-    Object.defineProperty(BaseLayer.prototype, "data", {
+    Object.defineProperty(BaseUI.prototype, "data", {
         get: function () {
             return this.m_data;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(BaseLayer.prototype, "layer", {
+    Object.defineProperty(BaseUI.prototype, "layerID", {
         get: function () {
-            return this.m_layer;
+            return this.m_layerID;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(BaseLayer.prototype, "mutex", {
+    Object.defineProperty(BaseUI.prototype, "mutex", {
         get: function () {
             return this.m_mutex;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(BaseLayer.prototype, "modal", {
+    Object.defineProperty(BaseUI.prototype, "modal", {
         get: function () {
             return this.m_modal;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(BaseLayer.prototype, "modalAlpha", {
+    Object.defineProperty(BaseUI.prototype, "modalAlpha", {
         get: function () {
             return this.m_modalAlpha;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(BaseLayer.prototype, "effectType", {
+    Object.defineProperty(BaseUI.prototype, "effectType", {
         get: function () {
             return this.m_effectType;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(BaseLayer.prototype, "modalMask", {
+    Object.defineProperty(BaseUI.prototype, "modalMask", {
         get: function () {
             return this.m_modalMask;
         },
         enumerable: true,
         configurable: true
     });
-    BaseLayer.prototype.setData = function (data) {
+    BaseUI.prototype.setData = function (data) {
         this.m_data = data;
         this.m_dataInited = true;
         if (this.m_childrenCreated) {
             this.initData();
         }
     };
-    BaseLayer.prototype.childrenCreated = function () {
+    BaseUI.prototype.childrenCreated = function () {
         _super.prototype.childrenCreated.call(this);
         this.init();
         this.m_childrenCreated = true;
@@ -86,10 +86,10 @@ var BaseLayer = (function (_super) {
             this.initData();
         }
     };
-    BaseLayer.prototype.init = function () { };
-    BaseLayer.prototype.initData = function () { };
-    BaseLayer.prototype.destory = function () { };
-    return BaseLayer;
+    BaseUI.prototype.init = function () { };
+    BaseUI.prototype.initData = function () { };
+    BaseUI.prototype.destory = function () { };
+    return BaseUI;
 }(eui.Component));
-__reflect(BaseLayer.prototype, "BaseLayer");
-//# sourceMappingURL=BaseLayer.js.map
+__reflect(BaseUI.prototype, "BaseUI");
+//# sourceMappingURL=BaseUI.js.map

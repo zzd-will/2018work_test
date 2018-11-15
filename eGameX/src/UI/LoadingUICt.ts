@@ -12,14 +12,17 @@ namespace UI{
     }
 }
 
-class  LoadingUICT extends BaseLayer {
+class  LoadingUICT extends BaseUI {
  	public constructor() {
 		super();
         //使用
         this.skinName = RES.getRes("Loading.exml")
 
 		this.img = "loading_bg_under.jpg";
-        this.m_layer = LayerManager.EUI_LODING_LAYER
+        //在哪个层上
+        this.m_layerID = LayerManager.EUI_LODING_LAYER
+        this.verticalCenter = 0
+        this.horizontalCenter = 0;
 
 	}
 	public img;
