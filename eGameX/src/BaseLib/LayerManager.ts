@@ -95,12 +95,12 @@ class LayerManager {
     public isShow(ui_name: string) { return ui_name in this.m_UIMap }
 
     public getUIList() {
-        var e = [];
-        for (var t in this.m_UIMap) {
-            var i = this.m_UIMap[t];
-            e.push(i)
+        var UIlist = [];
+        for (var name in this.m_UIMap) {
+            var ui = this.m_UIMap[name];
+            UIlist.push(ui)
         }
-        return e
+        return UIlist
     }
     public showUI(ui_name: string, data?: any) {
         if (!this.m_UIMap[ui_name]) {
