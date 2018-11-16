@@ -35,9 +35,9 @@ var testGameTicker = (function (_super) {
         //tables json 加载
         // tables.load();
         // this.testmc();
-        // this.testui();
-        _this.testLayerManager();
+        _this.testui();
         return _this;
+        // this.testLayerManager();
     }
     //promise 使用
     testGameTicker.prototype.get = function (key) {
@@ -81,15 +81,20 @@ var testGameTicker = (function (_super) {
             var e = document.getElementById("launchDiv");
             null != e && e.parentNode.removeChild(e);
         }, null);
-        loadingView.verticalCenter = 0;
-        loadingView.horizontalCenter = 0;
+        // loadingView.verticalCenter = 0
+        // loadingView.horizontalCenter = 0
         var euiLayer = new eui.UILayer;
         euiLayer.addChild(loadingView);
         euiLayer.touchEnabled = !1;
-        this.addChild(loadingView);
+        this.addChild(euiLayer);
+        //  RES.loadGroup("init",0,loadingView)
+        loadingView.onProgress(3, 5);
     };
     testGameTicker.prototype.testLayerManager = function () {
         LayerManager.inst.showUI("LoadingUICT");
+    };
+    testGameTicker.prototype.testloadingUI = function () {
+        RES.loadGroup("init", 0);
     };
     return testGameTicker;
 }(egret.DisplayObjectContainer));

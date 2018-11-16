@@ -36,8 +36,8 @@ class testGameTicker extends egret.DisplayObjectContainer {
         // tables.load();
 
         // this.testmc();
-        // this.testui();
-        this.testLayerManager();
+        this.testui();
+        // this.testLayerManager();
         
     }
     //promise 使用
@@ -97,14 +97,17 @@ class testGameTicker extends egret.DisplayObjectContainer {
                 null != e && e.parentNode.removeChild(e)
             },
             null)
-        loadingView.verticalCenter = 0
-        loadingView.horizontalCenter = 0
+        // loadingView.verticalCenter = 0
+        // loadingView.horizontalCenter = 0
 
         var euiLayer = new eui.UILayer
         euiLayer.addChild(loadingView);
         euiLayer.touchEnabled = !1
 
-        this.addChild(loadingView);
+        this.addChild(euiLayer);
+        //  RES.loadGroup("init",0,loadingView)
+
+        loadingView.onProgress(3,5);
 
     }
 
@@ -112,6 +115,10 @@ class testGameTicker extends egret.DisplayObjectContainer {
 
         LayerManager.inst.showUI("LoadingUICT");
 
+    }
+
+    public testloadingUI(){
+        RES.loadGroup("init",0,)
     }
 
 

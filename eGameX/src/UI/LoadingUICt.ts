@@ -6,7 +6,6 @@ namespace UI {
             super();
             //使用
             this.skinName = RES.getRes("Loading.exml")
-
             this.img = "loading_bg_under.jpg";
             //在哪个层上
             this.m_layerID = LayerManager.EUI_LODING_LAYER
