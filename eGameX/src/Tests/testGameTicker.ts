@@ -87,7 +87,7 @@ class testGameTicker extends egret.DisplayObjectContainer {
     }
     public testui() {
 
-        var loadingView = new LoadingUICT();
+        var loadingView = new UI.LoadingUICT();
 
         loadingView.skinName = RES.getRes("Loading.exml")
 

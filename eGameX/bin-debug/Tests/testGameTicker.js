@@ -75,7 +75,7 @@ var testGameTicker = (function (_super) {
         this.addChild(mc);
     };
     testGameTicker.prototype.testui = function () {
-        var loadingView = new LoadingUICT();
+        var loadingView = new UI.LoadingUICT();
         loadingView.skinName = RES.getRes("Loading.exml");
         loadingView.once(egret.Event.ADDED_TO_STAGE, function () {
             var e = document.getElementById("launchDiv");

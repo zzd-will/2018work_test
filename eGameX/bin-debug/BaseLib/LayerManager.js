@@ -82,7 +82,7 @@ var LayerManager = (function () {
     };
     LayerManager.prototype.showUI = function (ui_name, data) {
         if (!this.m_UIMap[ui_name]) {
-            var cls = egret.getDefinitionByName(ui_name);
+            var cls = egret.getDefinitionByName("UI." + ui_name);
             if (null == cls)
                 console.warn("[" + ui_name + "] Class Not Defined....");
             else {
