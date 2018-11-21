@@ -121,6 +121,11 @@ class testGameTicker extends egret.DisplayObjectContainer {
         RES.loadGroup("init",0,)
     }
 
+    public testLoader(){
+    
+
+    }
+
 
 
 }

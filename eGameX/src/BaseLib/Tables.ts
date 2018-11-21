@@ -41,4 +41,13 @@ namespace tables {
     export var wilds = {}
     export var blendMode = {}
     export var tmx = {}
+    /**
+     *  "laohu": {
+        "head": 80,
+        "body": 40,
+        "feet": 0,
+        "step": 85
+    }
+     */
+    export  var  actor// = RES.getRes("config/character.json")
 }

@@ -96,6 +96,8 @@ var testGameTicker = (function (_super) {
     testGameTicker.prototype.testloadingUI = function () {
         RES.loadGroup("init", 0);
     };
+    testGameTicker.prototype.testLoader = function () {
+    };
     return testGameTicker;
 }(egret.DisplayObjectContainer));
 __reflect(testGameTicker.prototype, "testGameTicker");
