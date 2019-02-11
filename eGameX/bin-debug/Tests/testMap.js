@@ -12,16 +12,21 @@ var testMap = (function (_super) {
     __extends(testMap, _super);
     function testMap() {
         var _this = _super.call(this) || this;
-        var url = "resource/outsidemap/outside11.tmx";
-        var data = RES.getResByUrl(url, _this.onLoaded, _this, RES.ResourceItem.TYPE_XML);
+        _this.url = "resource/outsidemap/outside11.tmx";
+        var data = RES.getResByUrl(_this.url, _this.onLoaded, _this, RES.ResourceItem.TYPE_XML);
         return _this;
     }
     testMap.prototype.onLoaded = function (e) {
-        var t = e.attributes.width * e.attributes.tilewidth, n = e.attributes.height * e.attributes.tileheight, i = new tiled.TMXTilemap(t, n, e, "resource/outsidemap/");
+        var t = e.attributes.width * e.attributes.tilewidth, n = e.attributes.height * e.attributes.tileheight, i = new tiled.TMXTilemap(t, n, e, this.url);
         // i.y = 500;
         i.render(),
             i.touchEnabled = !0;
         this.addChild(i);
+        i.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onMove, this);
+    };
+    testMap.prototype.onMove = function (e) {
+        e.target.x += 7;
+        e.target.y += 3;
     };
     return testMap;
 }(egret.DisplayObjectContainer));

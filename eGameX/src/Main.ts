@@ -223,10 +223,12 @@ class Main extends egret.DisplayObjectContainer {
      */
     private createGameScene() {
 
-        LayerManager.inst.init2(this);
+        // LayerManager.inst.init2(this);
 
-        var gameticker = new testGameTicker();
-        this.addChild(gameticker);
+        // var gameticker = new testGameTicker();
+        // this.addChild(gameticker);
+        var map = new testMap();
+         this.addChild(map);
 
     }
 

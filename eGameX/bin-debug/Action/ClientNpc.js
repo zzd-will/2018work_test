@@ -6,6 +6,11 @@ var ClientNpc = (function () {
     function ClientNpc() {
         this.workingCmd = new Action.CommandAction;
     }
+    ClientNpc.prototype.init = function (e, t, n) {
+        this.resource = e,
+            this.Name = t,
+            this.skillId = n;
+    };
     ClientNpc.prototype.locate = function (dir64, logicPos) {
     };
     ClientNpc.prototype.cmdSkill = function (e) {
@@ -17,6 +22,10 @@ var ClientNpc = (function () {
             this.workingCmd.cmd = t,
             this.workingCmd.action = e,
             t.begin();
+    };
+    ClientNpc.prototype.castDirSkill = function (e, t, n) {
+        var i = new Action.CmdDirSkill(this, n, e, t);
+        this.pushCommand(Action.Status.Casting, i);
     };
     ClientNpc.prototype.update = function (e) {
         var t = this.workingCmd.cmd;

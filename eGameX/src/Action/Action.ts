@@ -153,7 +153,9 @@ namespace Action {
         public abort() { }
         public onSkill() { }
         public castanimition() { }
-        public execute() { }
+        public execute() {
+             var c = this.onSkill();
+         }
     }
 
     export class CmdDirSkill extends CmdSkill {

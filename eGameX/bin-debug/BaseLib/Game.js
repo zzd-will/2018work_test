@@ -123,4 +123,9 @@ var Game;
     }
     Game.depthSortChildren = depthSortChildren;
 })(Game || (Game = {}));
+(function (Game) {
+    function start() {
+    }
+    Game.start = start;
+})(Game || (Game = {}));
 //# sourceMappingURL=Game.js.map

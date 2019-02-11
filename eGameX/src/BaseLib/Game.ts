@@ -86,3 +86,10 @@ namespace Game {
         }
     }
 }
+
+
+namespace Game{
+    export function start(){
+        
+    }
+}

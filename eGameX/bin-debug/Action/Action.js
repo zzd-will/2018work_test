@@ -154,15 +154,17 @@ var Action;
         CmdSkill.prototype.abort = function () { };
         CmdSkill.prototype.onSkill = function () { };
         CmdSkill.prototype.castanimition = function () { };
-        CmdSkill.prototype.execute = function () { };
+        CmdSkill.prototype.execute = function () {
+            var c = this.onSkill();
+        };
         return CmdSkill;
     }());
     Action.CmdSkill = CmdSkill;
-    __reflect(CmdSkill.prototype, "Action.CmdSkill");
+    __reflect(CmdSkill.prototype, "Action.CmdSkill", ["Action.Node"]);
     var CmdDirSkill = (function (_super) {
         __extends(CmdDirSkill, _super);
-        function CmdDirSkill() {
-            return _super !== null && _super.apply(this, arguments) || this;
+        function CmdDirSkill(a, b, c, d) {
+            return _super.call(this, a, b) || this;
         }
         CmdDirSkill.prototype.onSkill = function () {
         };

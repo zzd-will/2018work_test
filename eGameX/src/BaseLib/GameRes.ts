@@ -3,7 +3,6 @@
 //另外一种加载资源的方式，主要用自定义解析器自动处理资源
 
 namespace GameRes {
-
     var loaded = {};
     export function preInit() {
         RES.processor.map("zip", {
@@ -140,7 +139,4 @@ namespace GameRes {
         }
 
     }
-
-
-
 }

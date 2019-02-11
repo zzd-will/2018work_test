@@ -260,9 +260,11 @@ var Main = (function (_super) {
      * Create a game scene
      */
     Main.prototype.createGameScene = function () {
-        LayerManager.inst.init2(this);
-        var gameticker = new testGameTicker();
-        this.addChild(gameticker);
+        // LayerManager.inst.init2(this);
+        // var gameticker = new testGameTicker();
+        // this.addChild(gameticker);
+        var map = new testMap();
+        this.addChild(map);
     };
     return Main;
 }(egret.DisplayObjectContainer));
